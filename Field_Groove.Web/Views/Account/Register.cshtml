@@ -1,0 +1,47 @@
+﻿@using Field_Groove.Application.Constants;
+@model Feild_Groove.Domain.Models.LoginModel;
+
+<head>
+	
+</head>
+<div>
+	<nav class="d-flex justify-content-around pt-4">
+		<div>
+			<a href="#"><img src="/images/logo-fieldgroove-blue.svg" alt="Feild_groove" width="270" /></a>
+		</div>
+		<div>
+			<ul class="list-unstyled d-flex navItems">
+				<li><a class="btn">@ApplicationConstants.Item1</a></li>
+				<li>
+					<a class="btn dropdown-toggle text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+						@ApplicationConstants.Item2
+					</a>
+					<ul class="dropdown-menu dropdown-menu-dark navItems2">
+						<li><a class="dropdown-item" href="#">flooring</a></li>
+						<li><a class="dropdown-item" href="#">roofing</a></li>
+						<li><a class="dropdown-item" href="#">drywall</a></li>
+						<li><a class="dropdown-item" href="#">insulation</a></li>
+					</ul>
+				</li>
+				<li><a class="btn">@ApplicationConstants.Item3</a></li>
+				<li><a class="btn">@ApplicationConstants.Item4</a> </li>
+				<li><a class="btn" asp-controller="Account" asp-action="Login">@ApplicationConstants.Item6</a> </li>
+				<li><a class="btn navItems2" asp-controller="Account" asp-action="Register">@ApplicationConstants.Item5</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div>
+		<h1>Try FeildGroove Free For 7 Days!</h1>
+		<div class="container d-flex p-0 containerStyle  mt-3">
+			<form method="post" class="w-50 p-5 formstyle rounded-2">
+				<div class="vstack gap-3">
+
+				</div>
+			</form>
+			<div class="w-50 p-5 rounded-2">
+				
+			</div>
+		</div>
+	</div>
+	
+</div>
