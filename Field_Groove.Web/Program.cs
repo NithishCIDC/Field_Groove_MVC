@@ -1,6 +1,22 @@
+using Feild_Groove.Domain.Validation;
+using Feild_Groove.Infrastructure.Data;
+using Feild_Groove.Infrastructure.UnitOfWork;
+using Field_Groove.Application.Interfaces;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddFluentValidationAutoValidation()
+	.AddFluentValidationClientsideAdapters()
+	.AddValidatorsFromAssemblyContaining<RegisterValidator>();
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

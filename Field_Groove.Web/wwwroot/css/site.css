@@ -8,17 +8,23 @@ html {
     }
 }
 
-a{
-    text-decoration:none;
+.roboto-thin {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
 }
 
-.btn:focus{
-    box-shadow:none;
-    outline:none;
+a {
+    text-decoration: none;
+}
+
+.btn:focus {
+    box-shadow: none;
+    outline: none;
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     box-sizing: border-box;
 }
 
@@ -57,13 +63,33 @@ body {
     color: #E56355;
 }
 
-.formstyle {
+.Registerformstyle {
     position: relative;
     color: white;
     background-color: #182446;
+    width: 40%;
 }
 
-    .formstyle::after {
+    .Registerformstyle::after {
+        content: "";
+        position: absolute;
+        top: 50px;
+        right: -30px;
+        height: 0px;
+        width: 0px;
+        border: solid 15px transparent;
+        border-left-color: #172648;
+        overflow: hidden;
+    }
+
+.Loginformstyle {
+    position: relative;
+    color: white;
+    background-color: #182446;
+    width: 60%;
+}
+
+    .Loginformstyle::after {
         content: "";
         position: absolute;
         top: 50px;
@@ -93,6 +119,7 @@ input {
     }
 
 .containerStyle {
+    width: 60%;
     background-color: #F2F5F8;
 }
 
@@ -118,10 +145,11 @@ input {
     background-color: #182346;
 }
 
-.loginBg {
+.BgImg {
     background-image: url("../images/bg.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% auto;
+    background-position: 0px 200px;
 }
 
 .heroicons--chat-bubble-left-right-solid {
@@ -138,3 +166,28 @@ input {
     bottom: 20px;
     right: 20px;
 }
+
+select {
+    outline: none;
+}
+
+.BlueColor {
+    color: #3652AC;
+}
+
+.OfferList {
+    position: relative;
+    padding-left: 28px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-weight: 600;
+}
+
+    .OfferList::before {
+        content: url("../images/icon-item.png");
+        position: absolute;
+        top: 12px;
+        left: 0px;
+        width: 18px;
+        height: 18px;
+    }

@@ -7,7 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Feild_Groove.Domain\Feild_Groove.Domain.csproj" />
+    <ProjectReference Include="..\Feild_Groove.Infrastructure\Feild_Groove.Infrastructure.csproj" />
     <ProjectReference Include="..\Field_Groove.Application\Field_Groove.Application.csproj" />
   </ItemGroup>
 
