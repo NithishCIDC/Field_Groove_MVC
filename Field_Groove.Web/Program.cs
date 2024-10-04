@@ -13,7 +13,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 
 builder.Services.AddFluentValidationAutoValidation()
 	.AddFluentValidationClientsideAdapters()
-	.AddValidatorsFromAssemblyContaining<RegisterValidator>();
+	.AddValidatorsFromAssemblyContaining<LoginValidator>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 

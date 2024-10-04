@@ -1,12 +1,7 @@
 ﻿using Feild_Groove.Domain.Models;
 using Feild_Groove.Infrastructure.Data;
 using Field_Groove.Application.Interfaces;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Feild_Groove.Infrastructure.Repositories
 {
@@ -14,31 +9,42 @@ namespace Feild_Groove.Infrastructure.Repositories
 	{
 		private readonly ApplicationDbContext _dbContext;
 
-        public UserRepository(ApplicationDbContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
-        public async Task Create(RegisterModel  entity)
+		public UserRepository(ApplicationDbContext dbContext)
 		{
-			await _dbContext.UserData.AddAsync(entity);
-			await _dbContext.SaveChangesAsync();
+			_dbContext = dbContext;
+		}
+		public async Task<string> Create(RegisterModel entity)
+		{
+			if (entity is not null)
+			{
+				bool IsRegistered = await _dbContext.UserData.AsQueryable().AnyAsync(x => x.Email == entity.Email);
+				if (!IsRegistered)
+				{
+					await _dbContext.UserData.AddAsync(entity);
+					await _dbContext.SaveChangesAsync();
+					return "Successfully Registered";
+				}
+				return "User Already Exist";
+			}
+			return "Not Valid";
 		}
 
-		public async Task<string>  IsRegisterd(LoginModel entity)
+		public async Task<string> IsValidUser(LoginModel entity)
 		{
-			if(entity is not null)
+			var UserDetail = await _dbContext.UserData.FindAsync(entity.Email);
+			if (UserDetail is null) 
 			{
-				var UserDetail = await _dbContext.UserData.FindAsync(entity.Email);
-				if(UserDetail is not null && entity.Email != UserDetail.Email) 
-				{
-					return "Invalid Credential";
-				}
-				if(UserDetail is not null && entity.Password != UserDetail.Password)
-				{
-					return "Incorrect Password";
-				}
+				return "Invalid Credential";
 			}
-			return "OK";
+			if (UserDetail is not null && entity.Email != UserDetail.Email)
+			{
+				return "Invalid Credential";
+			}
+			if (UserDetail is not null && entity.Password != UserDetail.Password)
+			{
+				return "Incorrect Password";
+			}
+			return "Loggined Successfully";
 		}
 	}
 }

@@ -9,10 +9,10 @@ namespace Field_Groove.Web.Controllers
 		private readonly IUnitOfWork unitOfWork;
 
 		public AccountController(IUnitOfWork unitOfWork)
-        {
+		{
 			this.unitOfWork = unitOfWork;
 		}
-        [HttpGet]
+		[HttpGet]
 		public IActionResult Login()
 		{
 			ViewData["Title"] = "Login | ";
@@ -22,8 +22,12 @@ namespace Field_Groove.Web.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Login(LoginModel entity)
 		{
-			var status = await unitOfWork.UserRepository.IsRegisterd(entity);
-			ViewBag.ErrorMessage(status);
+			string? status=null;
+			if (ModelState.IsValid)
+			{
+				status = await unitOfWork.UserRepository.IsValidUser(entity);
+				ViewBag.Status = status;
+			}
 			return View();
 		}
 
@@ -37,8 +41,15 @@ namespace Field_Groove.Web.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Register(RegisterModel entity)
 		{
-			await unitOfWork.UserRepository.Create(entity);
-			return View();
+			if (ModelState.IsValid)
+			{
+				string status = await unitOfWork.UserRepository.Create(entity);
+				ViewBag.Status = status;
+				if(status == "Successfully Registered")
+				return RedirectToAction("Login");
+			}
+			ViewData["Title"] = "Register | ";
+			return View(entity);
 		}
 	}
 }

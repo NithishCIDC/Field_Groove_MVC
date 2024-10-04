@@ -7,6 +7,12 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100&display=swap" rel="stylesheet">
 </head>
 <div>
+	@if(ViewBag.Status is not null)
+	{
+		<script>
+			alert('@ViewBag.Status');
+		</script>
+	}
 	<div class="container d-flex justify-content-between pt-4">
 		<div>
 			<a href="#"><img src="/images/logo-fieldgroove-blue.svg" alt="Feild_groove" width="270" /></a>
@@ -44,37 +50,30 @@
 								<div class="vstack gap-2">
 									<label asp-for="@Model.FirstName"></label>
 									<input type="text" asp-for="@Model.FirstName" class="py-1 px-1" />
-									<span asp-validation-for="@Model.FirstName" class="text-danger"></span>
 								</div>
 								<div class="vstack gap-2">
 									<label asp-for="@Model.LastName"></label>
 									<input type="text" asp-for="@Model.LastName" class="py-1 px-1" />
-									<span asp-validation-for="@Model.LastName" class="text-danger"></span>
 								</div>
 								<div class="vstack gap-2">
 									<label asp-for="@Model.CompanyName"></label>
 									<input type="text" asp-for="@Model.CompanyName" class="py-1 px-1" />
-									<span asp-validation-for="@Model.CompanyName" class="text-danger"></span>
 								</div>
 								<div class="vstack gap-2">
 									<label asp-for="@Model.Phone"></label>
 									<input type="text" asp-for="@Model.Phone" class="py-1 px-1" />
-									<span asp-validation-for="@Model.Phone" class="text-danger"></span>
 								</div>
 								<div class="vstack gap-2">
 									<label asp-for="@Model.Email"></label>
 									<input type="text" asp-for="@Model.Email" class="py-1 px-1" />
-									<span asp-validation-for="@Model.Email" class="text-danger"></span>
 								</div>
 								<div class="vstack gap-2">
 									<label asp-for="@Model.Password"></label>
 									<input type="password" asp-for="@Model.Password" class="py-1 px-1" />
-									<span asp-validation-for="@Model.Password" class="text-danger" ></span>
 								</div>
 								<div class="vstack gap-2">
 									<label asp-for="@Model.PasswordAgain"></label>
 									<input type="password" asp-for="@Model.PasswordAgain" class="py-1 px-1" />
-									<span asp-validation-for="@Model.PasswordAgain" class="text-danger" ></span>
 								</div>
 								<div class="vstack gap-2">
 									<label asp-for="@Model.TimeZone"></label>
@@ -93,39 +92,34 @@
 
 							</div>
 						</div>
-						<div class="carousel-item" style="height:918px">
+						<div class="carousel-item" style="height:862px">
 							<div class="vstack gap-3 p-5">
 								<h5>
 									OFFICE ADDRESS
 									<i class="bi bi-question-circle"
 									   data-bs-toggle="tooltip"
-									   title="This is your main office address, you can setup mulitple location in your setting after logging in">
+									   title="This is your main office address, you can setup mulitple location in your settings after logging in">
 									</i>
 								</h5>
 								<div class="vstack gap-2">
 									<label asp-for="@Model.StreetAddress1"></label>
 									<input type="text" asp-for="@Model.StreetAddress1" class="py-1 px-1" />
-									<span asp-validation-for="@Model.StreetAddress1" class="text-danger" ></span>
 								</div>
 								<div class="vstack gap-2">
 									<label asp-for="@Model.StreetAddress2"></label>
 									<input type="text" asp-for="@Model.StreetAddress2" class="py-1 px-1" />
-									<span asp-validation-for="@Model.StreetAddress2" class="text-danger" ></span>
 								</div>
 								<div class="vstack gap-2">
 									<label asp-for="@Model.City"></label>
 									<input type="text" asp-for="@Model.City" class="py-1 px-1" />
-									<span asp-validation-for="@Model.City" class="text-danger" ></span>
 								</div>
 								<div class="vstack gap-2">
 									<label asp-for="@Model.State"></label>
 									<input type="text" asp-for="@Model.State" class="py-1 px-1" />
-									<span asp-validation-for="@Model.State" class="text-danger" ></span>
 								</div>
 								<div class="vstack gap-2">
 									<label asp-for="@Model.Zip"></label>
 									<input type="text" asp-for="@Model.Zip" class="py-1 px-1" />
-									<span asp-validation-for="@Model.Zip" class="text-danger" ></span>
 								</div>
 								<div class="hstack gap-2">
 									<button class="btn w-50 text-white border-secondary py-2 rounded" style="background-color:transparent;" data-bs-target="#RegisterFormCarousel" data-bs-slide="prev">
@@ -139,6 +133,7 @@
 				</div>
 			</form>
 			<div class="w-50 p-5 rounded-2 flex-fill">
+				<div asp-validation-summary="All" class="text-danger" style="font-size:14px" ></div>
 				<div class="mb-4">
 					<h5 style="color:#F6584D">SIGN UP NOW TO START YOUR FREE TRIAL</h5>
 				</div>
@@ -266,7 +261,3 @@
 		</div>
 	</div>
 </div>
-
-@section Scripts {
-	<partial name="_ValidationScriptsPartial" />
-}
