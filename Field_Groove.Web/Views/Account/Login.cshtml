@@ -1,5 +1,5 @@
 ﻿@using Field_Groove.Application.Constants;
-@model Feild_Groove.Domain.Models.LoginModel;
+@model LoginModel;
 
 <head>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -80,7 +80,7 @@
 						@ApplicationConstants.LoginPara
 					</p>
 				</div>
-				<a class="btn createbtn">Create New Account</a>
+				<a class="btn createbtn" asp-controller="Account" asp-action="Register" >Create New Account</a>
 			</div>
 		</div>
 	</div>

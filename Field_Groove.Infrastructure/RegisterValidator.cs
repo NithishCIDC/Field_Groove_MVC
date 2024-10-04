@@ -1,4 +1,4 @@
-﻿using Feild_Groove.Domain.Models;
+﻿using Field_Groove.Domain.Models;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Feild_Groove.Domain.Validation
+namespace Field_Groove.Domain.Validation
 {
 	public class RegisterValidator : AbstractValidator<RegisterModel>
 	{

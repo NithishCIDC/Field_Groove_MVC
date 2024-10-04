@@ -1,10 +1,4 @@
-﻿using Feild_Groove.Domain.Models;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Field_Groove.Domain.Models;
 
 namespace Field_Groove.Application.Interfaces
 {

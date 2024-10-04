@@ -1,6 +1,6 @@
-﻿using Feild_Groove.Domain.Models;
-using Field_Groove.Application.Interfaces;
+﻿using Field_Groove.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Field_Groove.Domain.Models;
 
 namespace Field_Groove.Web.Controllers
 {

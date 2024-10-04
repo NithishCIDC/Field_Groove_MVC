@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Feild_Groove.Domain\Feild_Groove.Domain.csproj" />
+    <ProjectReference Include="..\Field_Groove.Domain\Field_Groove.Domain.csproj" />
   </ItemGroup>
 
 </Project>

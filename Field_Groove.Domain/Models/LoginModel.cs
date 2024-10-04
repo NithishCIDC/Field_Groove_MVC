@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Feild_Groove.Domain.Models
+namespace Field_Groove.Domain.Models
 {
 	public class LoginModel
 	{
@@ -13,7 +13,7 @@ namespace Feild_Groove.Domain.Models
 
 		public string? Password { get; set; }
 
-		[Display(Name ="Remember Me")]
-		public bool RemenberMe {  get; set; }
+		[Display(Name = "Remember Me")]
+		public bool RemenberMe { get; set; }
 	}
 }

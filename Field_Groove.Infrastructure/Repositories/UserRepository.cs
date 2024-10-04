@@ -1,9 +1,9 @@
-﻿using Feild_Groove.Domain.Models;
-using Feild_Groove.Infrastructure.Data;
-using Field_Groove.Application.Interfaces;
+﻿using Field_Groove.Application.Interfaces;
+using Field_Groove.Domain.Models;
+using Field_Groove.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace Feild_Groove.Infrastructure.Repositories
+namespace Field_Groove.Infrastructure.Repositories
 {
 	public class UserRepository : IUserRepository
 	{
@@ -32,7 +32,7 @@ namespace Feild_Groove.Infrastructure.Repositories
 		public async Task<string> IsValidUser(LoginModel entity)
 		{
 			var UserDetail = await _dbContext.UserData.FindAsync(entity.Email);
-			if (UserDetail is null) 
+			if (UserDetail is null)
 			{
 				return "Invalid Credential";
 			}

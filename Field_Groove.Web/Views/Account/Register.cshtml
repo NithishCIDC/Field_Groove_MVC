@@ -1,5 +1,5 @@
 ﻿@using Field_Groove.Application.Constants;
-@model Feild_Groove.Domain.Models.RegisterModel;
+@model RegisterModel;
 
 <head>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,7 +61,7 @@
 								</div>
 								<div class="vstack gap-2">
 									<label asp-for="@Model.Phone"></label>
-									<input type="text" asp-for="@Model.Phone" class="py-1 px-1" />
+									<input type="number" asp-for="@Model.Phone" class="py-1 px-1" />
 								</div>
 								<div class="vstack gap-2">
 									<label asp-for="@Model.Email"></label>
@@ -156,7 +156,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="container containerStyle bg-white mt-5">
+	<div class="container containerStyle bg-white mt-5 pt-5">
 		<div class="text-center">
 			<h2 class="BlueColor">Frequently Asked Questions</h2>
 		</div>
@@ -259,5 +259,10 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="fixedchatbtn">
+		<button class="border-0 rounded-circle p-2" style="background-color:#3957A9">
+			<span class="heroicons--chat-bubble-left-right-solid"></span>
+		</button>
 	</div>
 </div>
