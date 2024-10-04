@@ -36,11 +36,11 @@ namespace Field_Groove.Infrastructure.Repositories
 			{
 				return "Invalid Credential";
 			}
-			if (UserDetail is not null && entity.Email != UserDetail.Email)
+			if (entity.Email != UserDetail.Email)
 			{
 				return "Invalid Credential";
 			}
-			if (UserDetail is not null && entity.Password != UserDetail.Password)
+			if (entity.Password != UserDetail.Password)
 			{
 				return "Incorrect Password";
 			}

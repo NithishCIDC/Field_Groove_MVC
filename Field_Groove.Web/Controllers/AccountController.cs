@@ -22,13 +22,15 @@ namespace Field_Groove.Web.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Login(LoginModel entity)
 		{
-			string? status=null;
+			string? status;
 			if (ModelState.IsValid)
 			{
 				status = await unitOfWork.UserRepository.IsValidUser(entity);
-				ViewBag.Status = status;
+				ViewBag.ErrorMessage = status;
+				if(status == "Loggined Successfully")
+					return RedirectToAction("Dashboard");
 			}
-			return View();
+			return View(entity);
 		}
 
 		[HttpGet]
@@ -44,12 +46,18 @@ namespace Field_Groove.Web.Controllers
 			if (ModelState.IsValid)
 			{
 				string status = await unitOfWork.UserRepository.Create(entity);
-				ViewBag.Status = status;
+				ViewBag.ErrorMessage = status;
 				if(status == "Successfully Registered")
-				return RedirectToAction("Login");
+				return RedirectToAction("Dashboard");
 			}
 			ViewData["Title"] = "Register | ";
 			return View(entity);
+		}
+
+		[HttpGet]
+		public IActionResult Dashboard()
+		{
+			return View();
 		}
 	}
 }

@@ -191,3 +191,10 @@ select {
         width: 18px;
         height: 18px;
     }
+.ValidationList>ul{
+    padding-left:18px;
+}
+
+.text-justify{
+    text-align:justify;
+}

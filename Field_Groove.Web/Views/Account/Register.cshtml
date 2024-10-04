@@ -7,20 +7,14 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100&display=swap" rel="stylesheet">
 </head>
 <div>
-	@if(ViewBag.Status is not null)
-	{
-		<script>
-			alert('@ViewBag.Status');
-		</script>
-	}
 	<div class="container d-flex justify-content-between pt-4">
 		<div>
 			<a href="#"><img src="/images/logo-fieldgroove-blue.svg" alt="Feild_groove" width="270" /></a>
 		</div>
 		<div>
-			<ul class="list-unstyled d-flex navItems">
-				<li><a class="btn">@ApplicationConstants.Item1</a></li>
-				<li>
+			<ul class="list-unstyled navItems hstack gap-xl-4 gap-lg-0">
+				<li class="pe-3"><a class="btn">@ApplicationConstants.Item1</a></li>
+				<li class="pe-3">
 					<a class="btn dropdown-toggle text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
 						@ApplicationConstants.Item2
 					</a>
@@ -31,10 +25,10 @@
 						<li><a class="dropdown-item" href="#">insulation</a></li>
 					</ul>
 				</li>
-				<li><a class="btn">@ApplicationConstants.Item3</a></li>
-				<li><a class="btn">@ApplicationConstants.Item4</a> </li>
-				<li><a class="btn" asp-controller="Account" asp-action="Login">@ApplicationConstants.Item6</a> </li>
-				<li><a class="btn navItems2" asp-controller="Account" asp-action="Register">@ApplicationConstants.Item5</a></li>
+				<li class="pe-3"><a class="btn">@ApplicationConstants.Item3</a></li>
+				<li class="pe-3"><a class="btn">@ApplicationConstants.Item4</a> </li>
+				<li class="pe-3"><a class="btn" asp-controller="Account" asp-action="Login">@ApplicationConstants.Item6</a> </li>
+				<li class="pe-3"><a class="btn navItems2" asp-controller="Account" asp-action="Register">@ApplicationConstants.Item5</a></li>
 			</ul>
 		</div>
 	</div>
@@ -133,7 +127,14 @@
 				</div>
 			</form>
 			<div class="w-50 p-5 rounded-2 flex-fill">
-				<div asp-validation-summary="All" class="text-danger" style="font-size:14px" ></div>
+				<div asp-validation-summary="All" class="ValidationList text-danger" style="font-size:14px">
+					@if (ViewBag.ErrorMessage is not null)
+					{
+						<ul>
+							<li>@ViewBag.ErrorMessage</li>
+						</ul>
+					}
+				</div>
 				<div class="mb-4">
 					<h5 style="color:#F6584D">SIGN UP NOW TO START YOUR FREE TRIAL</h5>
 				</div>
@@ -160,7 +161,7 @@
 		<div class="text-center">
 			<h2 class="BlueColor">Frequently Asked Questions</h2>
 		</div>
-		<div class="row mt-5" style="color:#1A3265">
+		<div class="row mt-5 text-justify" style="color:#1A3265">
 			<div class="col-6 pe-5">
 				<div class="py-2">
 					<h5 class="BlueColor fw-bold">Will my card on file be charged?</h5>
@@ -234,28 +235,28 @@
 		</div>
 
 		<div class="LoginFooterBg">
-			<div class="container LoginFooter d-flex justify-content-between">
-				<div class="w-25">
-					<div>
-						<img src="/images/logo-footer.jpg" alt="Footer Logo" />
-					</div>
-					<div>
-						<p>
+			<div class="container LoginFooter">
+				<div class="mb-2">
+					<img src="/images/logo-footer.jpg" alt="Footer Logo" />
+				</div>
+				<div class=" d-flex justify-content-between">
+					<div class="w-25">
+						<p class="text-justify lh-lg">
 							Copyright © FieldGroove, LLC 2024. All Rights Reserved.716 Newman Springs Road, Suite 307 Lincroft, NJ 07738
 						</p>
 						<p>
 							<a href="#" style="color:#E76655;text-decoration:none">Privacy Policy</a>
 						</p>
 					</div>
-				</div>
-				<div class="w-25">
-					<p>
-						We would love to show you the power of FieldGroove.
-						To setup a demo or get an account setup, please contact us at
-						<a style="color:#E76655;text-decoration:none" href="#">@ApplicationConstants.LoginFooterEmail</a>
-						or by phone at
-						<a style="color:#E76655;text-decoration:none" href="#">@ApplicationConstants.LoginFooterPhone</a>
-					</p>
+					<div class="w-25">
+						<p class="text-justify lh-lg">
+							We would love to show you the power of FieldGroove.
+							To setup a demo or get an account setup, please contact us at
+							<a style="color:#E76655;text-decoration:none" href="#">@ApplicationConstants.LoginFooterEmail</a>
+							or by phone at
+							<a style="color:#E76655;text-decoration:none" href="#">@ApplicationConstants.LoginFooterPhone</a>
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
