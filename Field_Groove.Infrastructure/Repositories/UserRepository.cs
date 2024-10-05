@@ -13,38 +13,35 @@ namespace Field_Groove.Infrastructure.Repositories
 		{
 			_dbContext = dbContext;
 		}
-		public async Task<string> Create(RegisterModel entity)
+		public async Task Create(RegisterModel entity)
 		{
-			if (entity is not null)
+			bool IsRegistered = await _dbContext.UserData.AsQueryable().AnyAsync(x => x.Email == entity.Email);
+			if (!IsRegistered)
 			{
-				bool IsRegistered = await _dbContext.UserData.AsQueryable().AnyAsync(x => x.Email == entity.Email);
-				if (!IsRegistered)
-				{
-					await _dbContext.UserData.AddAsync(entity);
-					await _dbContext.SaveChangesAsync();
-					return "Successfully Registered";
-				}
-				return "User Already Exist";
+				await _dbContext.UserData.AddAsync(entity);
+				await _dbContext.SaveChangesAsync();
 			}
-			return "Not Valid";
+			else
+			{
+				throw new Exception("User Already Exist");
+			}
 		}
 
-		public async Task<string> IsValidUser(LoginModel entity)
+		public async Task IsValidUser(LoginModel entity)
 		{
 			var UserDetail = await _dbContext.UserData.FindAsync(entity.Email);
 			if (UserDetail is null)
 			{
-				return "Invalid Credential";
+				throw new Exception("Invalid Credential");
 			}
 			if (entity.Email != UserDetail.Email)
 			{
-				return "Invalid Credential";
+				throw new Exception("Invalid Credential");
 			}
 			if (entity.Password != UserDetail.Password)
 			{
-				return "Incorrect Password";
+				throw new Exception("Incorrect Password");
 			}
-			return "Loggined Successfully";
 		}
 	}
 }
