@@ -9,7 +9,7 @@
 <div>
 	<div class="container d-flex justify-content-between pt-4">
 		<div>
-			<a href="#"><img src="/images/logo-fieldgroove-blue.svg" alt="Feild_groove" width="270" /></a>
+			<a asp-controller="Account" asp-action="Dashboard"><img src="/images/logo-fieldgroove-blue.svg" alt="Feild_groove" width="270" /></a>
 		</div>
 		<div>
 			<ul class="list-unstyled navItems hstack gap-xl-4 gap-lg-0">
@@ -27,8 +27,8 @@
 				</li>
 				<li class="pe-3"><a class="btn">@ApplicationConstants.Item3</a></li>
 				<li class="pe-3"><a class="btn">@ApplicationConstants.Item4</a> </li>
-				<li class="pe-3"><a class="btn" asp-controller="Account" asp-action="Login">@ApplicationConstants.Item6</a> </li>
-				<li class="pe-3"><a class="btn navItems2" asp-controller="Account" asp-action="Register">@ApplicationConstants.Item5</a></li>
+				<li class="pe-3"><a class="btn" asp-controller="Account" asp-action="Login">@ApplicationConstants.Item5</a> </li>
+				<li class="pe-3"><a class="btn navItems2" asp-controller="Account" asp-action="Register">@ApplicationConstants.Item6</a></li>
 			</ul>
 		</div>
 	</div>
@@ -228,9 +228,9 @@
 				<li class="text-secondary">|</li>
 				<li><a>@ApplicationConstants.Item4</a></li>
 				<li class="text-secondary">|</li>
-				<li><a asp-controller="Account" asp-action="Login">@ApplicationConstants.Item6</a></li>
+				<li><a asp-controller="Account" asp-action="Login">@ApplicationConstants.Item5</a></li>
 				<li class="text-secondary">|</li>
-				<li><a asp-controller="Account" asp-action="Register">@ApplicationConstants.Item5</a></li>
+				<li><a asp-controller="Account" asp-action="Rgister">@ApplicationConstants.Item6</a></li>
 			</ul>
 		</div>
 

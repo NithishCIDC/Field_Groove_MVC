@@ -92,7 +92,7 @@ body {
     .Loginformstyle::after {
         content: "";
         position: absolute;
-        top: 50px;
+        top: 60px;
         right: -30px;
         height: 0px;
         width: 0px;

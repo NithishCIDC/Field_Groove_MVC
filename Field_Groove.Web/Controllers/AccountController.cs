@@ -56,7 +56,7 @@ namespace Field_Groove.Web.Controllers
 				if (ModelState.IsValid)
 				{
 					await unitOfWork.UserRepository.Create(entity);
-					return RedirectToAction("Dashboard");
+					return RedirectToAction("WaitingActivation");
 				}
 			}
 			catch (Exception ex)
@@ -69,6 +69,13 @@ namespace Field_Groove.Web.Controllers
 		[HttpGet]
 		public IActionResult Dashboard()
 		{
+			return View();
+		}
+
+		[HttpGet]
+		public IActionResult WaitingActivation()
+		{
+			ViewData["Title"] = "Register | ";
 			return View();
 		}
 	}

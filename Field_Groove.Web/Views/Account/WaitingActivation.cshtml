@@ -1,11 +1,10 @@
 ﻿@using Field_Groove.Application.Constants;
-@model LoginModel;
 
 <head>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <div class="LoginDiv">
-	<div class="container d-flex justify-content-between pt-4">
+	<div class="container d-flex justify-content-between pt-4 mb-5">
 		<div>
 			<a asp-controller="Account" asp-action="Dashboard"><img src="/images/logo-fieldgroove-blue.svg" alt="Feild_groove" width="270" /></a>
 		</div>
@@ -31,58 +30,21 @@
 		</div>
 	</div>
 	<div class="BgImg d-flex flex-column justify-content-between">
-		<div class="container d-flex justify-content-between p-0 containerStyle  mt-5">
-			<form method="post" id="LoginForm" class="p-5 Loginformstyle rounded-2 ">
-				<div class="vstack gap-3">
-					<h3>SIGN IN</h3>
-
-					<div class="vstack gap-1">
-						<label asp-for="@Model.Email"></label>
-						<input type="email" asp-for="@Model.Email" class="py-1 px-1" />
-					</div>
-
-					<div class="vstack gap-1">
-						<label asp-for="@Model.Password"></label>
-						<input type="password" asp-for="@Model.Password" class="py-1 px-1" />
-					</div>
-					<div class="d-flex">
-						<input asp-for="@Model.RemenberMe" type="checkbox" class="me-1" />
-						<label asp-for="@Model.RemenberMe"></label>
-					</div>
-
-					<div class=" d-flex gap-2 flex-sm-wrap flex-lg-nowrap">
-						<a class="btn text-nowrap text-secondary border-secondary flex-fill">Forgot password?</a>
-
-						<button type="submit" class="Signbtn btn d-flex align-items-center justify-content-center text-nowrap text-decoration-none text-white flex-fill">
-							Sign In
-							<span class="material-symbols-rounded">chevron_right</span>
-						</button>
-					</div>
-				</div>
-			</form>
-			<div class=" p-5 rounded-2">
-				<div asp-validation-summary="All" class="ValidationList text-danger" style="font-size:14px">
-					@if (ViewBag.ErrorMessage is not null)
-					{
-						<ul>
-							<li >@ViewBag.ErrorMessage</li>
-						</ul>
-					}
-				</div>
-				<div class="mb-3">
-					<h4 style="color:#E56355;">NEED AN ACCOUNT?</h4>
-				</div>
+		<div class="container text-center p-0 containerStyle mt-5" style="height:300px">
+			<div class="py-5 ">
+				<h5 class="text-uppercase pb-3" style="color:#E56355;">Thank you for signing up!</h5>
 				<div>
-					<p class="loginPara">
-						@ApplicationConstants.LoginPara
-					</p>
+					<p class="m-0 mb-1">Just one more step.</p>
+					<p class="m-0 mb-1">A validation email was just sent to you.</p>
+					<p class="m-0 mb-1">Please click the link in the email to activate your account and login.</p>
 				</div>
-				<a class="btn createbtn" asp-controller="Account" asp-action="Register">Create New Account</a>
 			</div>
 		</div>
 		<div class="d-flex justify-content-center">
 			<ul class="text-uppercase list-unstyled hstack gap-4 navItems">
 				<li><a>@ApplicationConstants.Item1</a></li>
+				<li class="text-secondary">|</li>
+				<li><a>PRICING</a></li>
 				<li class="text-secondary">|</li>
 				<li><a>@ApplicationConstants.Item3</a></li>
 				<li class="text-secondary">|</li>
@@ -121,14 +83,10 @@
 				</div>
 			</div>
 		</div>
-	<div class="fixedchatbtn">
-		<button class="border-0 rounded-circle p-2" style="background-color:#3957A9">
-			<span class="heroicons--chat-bubble-left-right-solid"></span>
-		</button>
-	</div>
+		<div class="fixedchatbtn">
+			<button class="border-0 rounded-circle p-2" style="background-color:#3957A9">
+				<span class="heroicons--chat-bubble-left-right-solid"></span>
+			</button>
+		</div>
 	</div>
 </div>
-
-@section Scripts{
-	<script src="~/js/Loginjs.js" asp-append-version="true"></script>
-}

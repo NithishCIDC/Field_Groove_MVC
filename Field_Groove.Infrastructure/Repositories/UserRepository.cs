@@ -34,10 +34,6 @@ namespace Field_Groove.Infrastructure.Repositories
 			{
 				throw new Exception("Invalid Credential");
 			}
-			if (entity.Email != UserDetail.Email)
-			{
-				throw new Exception("Invalid Credential");
-			}
 			if (entity.Password != UserDetail.Password)
 			{
 				throw new Exception("Incorrect Password");
