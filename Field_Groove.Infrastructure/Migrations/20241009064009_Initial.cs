@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Feild_Groove.Infrastructure.Migrations
+namespace Field_Groove.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class Initial : Migration
@@ -14,13 +14,11 @@ namespace Feild_Groove.Infrastructure.Migrations
                 name: "UserData",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Phone = table.Column<long>(type: "bigint", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PasswordAgain = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TimeZone = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -32,7 +30,7 @@ namespace Feild_Groove.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserData", x => x.Id);
+                    table.PrimaryKey("PK_UserData", x => x.Email);
                 });
         }
 

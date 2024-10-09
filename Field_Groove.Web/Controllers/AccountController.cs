@@ -23,21 +23,22 @@ namespace Field_Groove.Web.Controllers
 		public async Task<IActionResult> Login(LoginModel entity)
 		{
 			ViewData["Title"] = "Login | ";
+			string[] errorMessages;
 
 			try
 			{
 				if (ModelState.IsValid)
 				{
 					await unitOfWork.UserRepository.IsValidUser(entity);
-					return RedirectToAction("Dashboard");
 				}
 			}
 			catch (Exception ex)
 			{
-				ViewBag.ErrorMessage = ex.Message;
+				errorMessages = [ex.Message];
+				return Json(errorMessages);
 			}
-
-			return View(entity);
+			errorMessages = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).ToArray();
+			return Json(errorMessages);
 		}
 
 		[HttpGet]

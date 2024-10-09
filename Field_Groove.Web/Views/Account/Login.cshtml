@@ -32,7 +32,7 @@
 	</div>
 	<div class="BgImg d-flex flex-column justify-content-between">
 		<div class="container d-flex justify-content-between p-0 containerStyle  mt-5">
-			<form method="post" id="LoginForm" class="p-5 Loginformstyle rounded-2 ">
+			<form  id="LoginForm" class="p-5 Loginformstyle rounded-2 ">
 				<div class="vstack gap-3">
 					<h3>SIGN IN</h3>
 
@@ -53,22 +53,18 @@
 					<div class=" d-flex gap-2 flex-sm-wrap flex-lg-nowrap">
 						<a class="btn text-nowrap text-secondary border-secondary flex-fill">Forgot password?</a>
 
-						<button type="submit" class="Signbtn btn d-flex align-items-center justify-content-center text-nowrap text-decoration-none text-white flex-fill">
+						<a onclick="return ValidateLogin()" class="Signbtn btn d-flex align-items-center justify-content-center text-nowrap text-decoration-none text-white flex-fill">
 							Sign In
 							<span class="material-symbols-rounded">chevron_right</span>
-						</button>
+						</a>
 					</div>
 				</div>
 			</form>
 			<div class=" p-5 rounded-2">
 				<div asp-validation-summary="All" class="ValidationList text-danger" style="font-size:14px">
-					@if (ViewBag.ErrorMessage is not null)
-					{
-						<ul>
-							<li >@ViewBag.ErrorMessage</li>
-						</ul>
-					}
+					<ul id="ValidationSummary"></ul>
 				</div>
+				
 				<div class="mb-3">
 					<h4 style="color:#E56355;">NEED AN ACCOUNT?</h4>
 				</div>
@@ -130,5 +126,5 @@
 </div>
 
 @section Scripts{
-	<script src="~/js/Loginjs.js" asp-append-version="true"></script>
+	<script src="~/js/Login.js" asp-append-version="true"></script>
 }
