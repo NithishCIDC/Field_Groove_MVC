@@ -13,22 +13,16 @@
             if (response.length == 0) {
                 window.location.href = "/Account/Dashboard";
             }
-            else
-            {
+            else {
                 $Validation = $('#ValidationSummary')
                 $($Validation).empty();
                 response.forEach(function (res) {
-                    $($Validation).append(
-                        `<li>${res}</li>`
-                    );
+                    $($Validation).append(`<li>${res}</li>`);
                 });
-                console.log(response);
             }
         },
         error: function (response) {
-            console.log("Failed")
+            alert('Some Internal Error Occurs');
         }
     });
-
-    return false;
 }
