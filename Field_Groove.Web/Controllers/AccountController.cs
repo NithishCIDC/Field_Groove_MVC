@@ -42,6 +42,7 @@ namespace Field_Groove.Web.Controllers
 		}
 
 		[HttpGet]
+
 		public IActionResult Register()
 		{
 			ViewData["Title"] = "Register | ";

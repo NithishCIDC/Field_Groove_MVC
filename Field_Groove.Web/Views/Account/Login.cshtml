@@ -32,7 +32,7 @@
 	</div>
 	<div class="BgImg d-flex flex-column justify-content-between">
 		<div class="container d-flex justify-content-between p-0 containerStyle  mt-5">
-			<form  id="LoginForm" class="p-5 Loginformstyle rounded-2 ">
+			<form id="LoginForm" class="p-5 Loginformstyle rounded-2 " onsubmit="return ValidateLogin()">
 				<div class="vstack gap-3">
 					<h3>SIGN IN</h3>
 
@@ -53,10 +53,10 @@
 					<div class=" d-flex gap-2 flex-sm-wrap flex-lg-nowrap">
 						<a class="btn text-nowrap text-secondary border-secondary flex-fill">Forgot password?</a>
 
-						<a onclick="ValidateLogin()" class="Signbtn btn d-flex align-items-center justify-content-center text-nowrap text-decoration-none text-white flex-fill">
+						<button type="submit" class="Signbtn btn d-flex align-items-center justify-content-center text-nowrap text-decoration-none text-white flex-fill">
 							Sign In
 							<span class="material-symbols-rounded">chevron_right</span>
-						</a>
+						</button>
 					</div>
 				</div>
 			</form>

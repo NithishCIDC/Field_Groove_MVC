@@ -25,4 +25,5 @@
             alert('Some Internal Error Occurs');
         }
     });
+    return false;
 }
