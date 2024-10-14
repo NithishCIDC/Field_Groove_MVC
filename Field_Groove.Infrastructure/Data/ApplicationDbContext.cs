@@ -6,6 +6,7 @@ namespace Field_Groove.Infrastructure.Data
 	public class ApplicationDbContext : DbContext
 	{
 		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+
 		public DbSet<RegisterModel> UserData { get; set; }
 	}
 }
