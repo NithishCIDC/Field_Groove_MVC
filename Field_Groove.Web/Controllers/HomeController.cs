@@ -19,12 +19,19 @@ namespace Field_Groove.Web.Controllers
 			return RedirectToAction("Login","Account");
 		}
 
-        [Authorize]
         [HttpGet]
         public IActionResult Dashboard()
         {
             return View();
         }
+		
+		[HttpGet]
+        public IActionResult Leads()
+        {
+            return View();
+        }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()

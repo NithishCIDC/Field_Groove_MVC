@@ -12,21 +12,7 @@
         success: function (response) {
             if (response.success == true) {
                 sessionStorage.setItem("token", response.message);
-
-                $.ajax({
-                    url: '/Home/Dashboard',
-                    type: 'GET',
-                    headers: {
-                        "Authorization": "Bearer " + sessionStorage.getItem("token")
-                    },
-                    success: function (response) {
-                        $('body').html(response);
-                        window.history.pushState({},'','/Home/Dashboard');
-                    },
-                    error: function () {
-                        alert("Error While Accessing Dashboard");
-                    }
-                });
+                window.location.href = "Home/Dashboard";
             }
             else {
                 $Validation = $('#ValidationSummary')
