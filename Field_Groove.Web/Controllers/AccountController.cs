@@ -38,6 +38,7 @@ namespace Field_Groove.Web.Controllers
                 {
                     await unitOfWork.UserRepository.IsValidUser(entity);
                     var token = GenerateJwtToken(entity.Email!);
+                    configuration["Userdetails:Email"] =entity.Email;
                     return Json(new { success = true, message = token });
                 }
             }
