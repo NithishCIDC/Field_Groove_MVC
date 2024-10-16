@@ -33,15 +33,17 @@ namespace Field_Groove.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult Leads()
+        public async Task<IActionResult> Leads()
         {
             ViewBag.Username = _configuration["UserDetails:Email"];
-            return View();
+            var User =await unitOfWork.Leads.GetAll();
+            return View(User);
         }
 
         [HttpGet]
         public IActionResult CreateLead()
         {
+            ViewBag.Username = _configuration["UserDetails:Email"];
             return View();
         }
 
@@ -53,7 +55,7 @@ namespace Field_Groove.Web.Controllers
                 await unitOfWork.Leads.Add(model);
                 await unitOfWork.Save();
             }
-            return View();
+            return RedirectToAction("Leads");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

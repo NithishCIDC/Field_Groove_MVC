@@ -34,7 +34,8 @@ namespace Field_Groove.Infrastructure.Repositories
 
         public async Task<IEnumerable<T>> GetAll()
         {
-            return await dbContext.Set<T>().ToListAsync();
+            var user = await dbContext.Set<T>().ToListAsync();
+            return user;
         }
 
         public async Task<T> GetById(int id)
