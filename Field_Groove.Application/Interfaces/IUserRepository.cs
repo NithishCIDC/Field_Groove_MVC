@@ -2,7 +2,7 @@
 
 namespace Field_Groove.Application.Interfaces
 {
-	public interface IUserRepository
+	public interface IUserRepository : IGenericRepository<RegisterModel>
 	{
 		public Task Create(RegisterModel entity);
 		public Task IsValidUser(LoginModel entity);

@@ -1,4 +1,5 @@
-﻿<head>
+﻿@model LeadsModel
+<head>
     <style>
         .hdTextTransparent{
             opacity:0.5;
@@ -28,7 +29,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto" style="">
                     <li class="nav-item mx-2 text-white">
-                        <a class="nav-link active text-white" aria-current="page" href="#Leads">Leads</a> <vr class="bg-white" />
+                        <a asp-controller="Home" asp-action="Leads" class="nav-link active text-white" aria-current="page" >Leads</a> <vr class="bg-white" />
                     </li>
                     <li class="vr" style="opacity:1;"></li>
                     <li class="nav-item mx-2">
@@ -70,7 +71,7 @@
                         <iconify-icon icon="codicon:account" style="color: white;" width="35"></iconify-icon>
                     </li>
                     <li class="d-flex align-items-center me-3 fs-6">
-                        <span class="text-white mx-2 ">Hariprakash</span>
+                        <span class="text-white mx-2 ">@ViewBag.Username</span>
                     </li>
                 </ul>
             </div>
@@ -79,7 +80,7 @@
     <div class="">
         <div class="row m-0 p-0 flex-fill">
             <div class="col-1 m-0 p-0" style="background-color:#E8E8E8;width:115px;">
-                <div class="sticky-top" style="top: 60px;">
+                <div class="sticky-top" style="top: 70px;">
                     <div class="d-flex flex-column align-items-center my-3">
                         <iconify-icon icon="pajamas:task-done" style="color: gray;" width="40" height="40"></iconify-icon>
                         <span class="side-bar-font my-1">Tasks</span>
@@ -141,24 +142,33 @@
                     </ul>
                     <div class="tab-content border" id="myTabContent">
                         <div class="tab-pane fade show active " id="Lead_Information" role="tabpanel" aria-labelledby="Lead_Information-tab">
-                            <div class="vstack gap-4 mt-4">
+                            <form method="post" class="vstack gap-4 mt-4">
                                 <div class="row m-0 p-0">
                                     <div class="col-2">
                                         Account Type
                                     </div>
                                     <div class="col-2">
-                                        <input type="checkbox" class="form-check-input shadow-none" />
-                                        <span>Business Account</span>
+                                        <input type="checkbox" asp-for="@Model.Type" class="form-check-input shadow-none" />
+                                        <label asp-for="@Model.Type">Business Account</label>
                                     </div>
+                                    <div class="col-4"></div>
+                                    <div class="col-2">
+                                       Date Created
+                                    </div>
+                                    <div class="col-2">
+                                        <p>@DateTime.Now</p>
+                                    </div>
+
                                 </div>
                                 <div class="row m-0 p-0">
                                     <div class="col-2">
                                         Status
                                     </div>
                                     <div class="col-3">
-                                        <select class="py-2 rounded-3 w-100">
+                                        <select asp-for="@Model.Status" class="py-2 rounded-3 w-100">
                                             <option>Select a Status...</option>
-
+                                            <option>Contacted</option>
+                                            <option>Not Contacted</option>
                                         </select>
                                     </div>
                                 </div>
@@ -177,7 +187,7 @@
                                         Project Name
                                     </div>
                                     <div class="col-3">
-                                        <input type="text" class="w-100 py-2 form-control shadow-none border-black " disabled />
+                                        <input asp-for="@Model.ProjectName" type="text" class="w-100 py-2 form-control shadow-none border-black "  />
                                     </div>
                                 </div>
                                 <div class="row m-0 p-0">
@@ -308,17 +318,9 @@
                                     <div class="col-2">
                                         Bid Date
                                     </div>
-                                    <div class="col-3 bg-white hstack" " >
-                                        <div class="d-flex align-items-center">
-                                            <iconify-icon icon="line-md:calendar" width="25"></iconify-icon>
-                                        </div>
-                                        <div class="border border-0">
-                                            <input type="date" />
-                                        </div>
+                                    <div class="col-3 bg-white">
                                         <div class="px-0 border border-0">
-                                            <select class="">
-                                                <option>Time</option>
-                                            </select>
+                                            <input asp-for="@Model.BidDate" type="datetime-local" value="2024-10-16T12:00"/>
                                         </div>
                                     </div>
                                 </div>
@@ -327,8 +329,11 @@
                                         Assigned User
                                     </div>
                                     <div class="col-2">
-                                        <select class="rounded-3 w-100">
+                                        <select asp-for="@Model.Assignee" class="rounded-3 w-100">
                                             <option>Hariprakash</option>
+                                            <option>Nithish MBBS</option>
+                                            <option>Boopathi Astronaut</option>
+                                            <option>Kesavan Scientist</option>
                                         </select>
                                     </div>
                                     <div class="col-2 d-flex align-items-baseline p-0 m-0">
@@ -341,8 +346,9 @@
                                         Action Needed
                                     </div>
                                     <div class="col-2">
-                                        <select class="rounded-3 w-100">
+                                        <select asp-for="@Model.Action" class="rounded-3 w-100">
                                             <option>Select an action </option>
+                                            <option>Quote</option>
                                         </select>
                                     </div>
                                     <div class="col-3 d-flex align-items-baseline p-0 m-0">
@@ -362,12 +368,12 @@
                                 <hr />
                                 <div class="mb-3">
                                     <div class="float-end me-3">
-                                        <button type="button" class="btn text-white" style="background-color: #3e89db">Save</button>
+                                        <button type="submit" class="btn text-white" style="background-color: #3e89db">Save</button>
                                         <button type="button" class="btn text-white" style="background-color: #3e89db">Save & Convert to Opportunity </button>
                                         <button type="button" class="btn btn-secondary">Cancel</button>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
 
                         </div>
                         <div class="tab-pane fade p-5 text-center" id="Contacts" role="tabpanel" aria-labelledby="Contacts-tab">... Contact Details </div>
@@ -385,8 +391,8 @@
                         <div class="col-5 border-end py-3">
                             <img src="/images/Profile.jpg" class="border" alt="profile Demo" width="100" height="100" />
                         </div>
-                        <div class="col-7 py-3">
-                            <textarea>Start the discussion by entering a notes...  </textarea>
+                        <div class="col-7 py-3" style="font-size:14px">
+                            <textarea class="w-100" placeholder="Start the discussion by entering a notes..." style="min-height:100px;outline:none"></textarea>
                             <div class="float-end">
                                 <button type="button" class="btn text-white float-end" style="background-color: #3e89db">Save</button>
                             </div>

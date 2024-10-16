@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Field_Groove.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241016065352_Add Leads Table")]
-    partial class AddLeadsTable
+    [Migration("20241016110555_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,14 +48,14 @@ namespace Field_Groove.Infrastructure.Migrations
                     b.Property<long?>("Contact")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("ProjectName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("Type")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 

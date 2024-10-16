@@ -1,3 +1,4 @@
+using Field_Groove.Application.Interfaces;
 using Field_Groove.Domain.Models;
 using Field_Groove.Infrastructure.Data;
 using Microsoft.AspNetCore.Authorization;
@@ -10,11 +11,13 @@ namespace Field_Groove.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IConfiguration _configuration;
+        private readonly IUnitOfWork unitOfWork;
 
-        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration, IUnitOfWork unitOfWork)
         {
             _logger = logger;
             _configuration = configuration;
+            this.unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
@@ -30,16 +33,29 @@ namespace Field_Groove.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult Leads()
+        public async Task<IActionResult> Leads()
         {
             ViewBag.Username = _configuration["UserDetails:Email"];
-            return View();
+            var User =await unitOfWork.Leads.GetAll();
+            return View(User);
         }
 
         [HttpGet]
         public IActionResult CreateLead()
         {
+            ViewBag.Username = _configuration["UserDetails:Email"];
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateLead(LeadsModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                await unitOfWork.Leads.Add(model);
+                await unitOfWork.Save();
+            }
+            return RedirectToAction("Leads");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

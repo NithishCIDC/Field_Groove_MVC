@@ -5,21 +5,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Field_Groove.Infrastructure.Repositories
 {
-	public class UserRepository : IUserRepository
+	public class UserRepository : GenericRepository<RegisterModel> , IUserRepository
 	{
-		private readonly ApplicationDbContext _dbContext;
-
-		public UserRepository(ApplicationDbContext dbContext)
+        public UserRepository(ApplicationDbContext dbContext) : base(dbContext)
+        {
+        }
+        public async Task Create(RegisterModel entity)
 		{
-			_dbContext = dbContext;
-		}
-		public async Task Create(RegisterModel entity)
-		{
-			bool IsRegistered = await _dbContext.UserData.AsQueryable().AnyAsync(x => x.Email == entity.Email);
+			bool IsRegistered = await dbContext.UserData.AsQueryable().AnyAsync(x => x.Email == entity.Email);
 			if (!IsRegistered)
 			{
-				await _dbContext.UserData.AddAsync(entity);
-				await _dbContext.SaveChangesAsync();
+				await dbContext.UserData.AddAsync(entity);
+				await dbContext.SaveChangesAsync();
 			}
 			else
 			{
@@ -27,9 +24,9 @@ namespace Field_Groove.Infrastructure.Repositories
 			}
 		}
 
-		public async Task IsValidUser(LoginModel entity)
+        public async Task IsValidUser(LoginModel entity)
 		{
-			var UserDetail = await _dbContext.UserData.FindAsync(entity.Email);
+			var UserDetail = await dbContext.UserData.FindAsync(entity.Email);
 			if (UserDetail is null)
 			{
 				throw new Exception("Invalid Credential");
@@ -39,5 +36,6 @@ namespace Field_Groove.Infrastructure.Repositories
 				throw new Exception("Incorrect Password");
 			}
 		}
-	}
+
+    }
 }

@@ -1,4 +1,6 @@
-﻿@using Field_Groove.Application.Constants
+﻿@using Field_Groove.Domain.Models;
+@model List<LeadsModel>;
+
 <head>
     <style>
         .vr {
@@ -216,7 +218,6 @@
                     <table class="table table-responsive" id="table">
                         <thead>
                             <tr>
-                                <th scope="col">Name</th>
                                 <th scope="col">Project Name</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Added</th>
@@ -228,7 +229,35 @@
                                 <th scope="col">operation</th>
                             </tr>
                         </thead>
-                        <tbody id="tableBody"></tbody>
+                        <tbody id="tableBody">
+                            @foreach (var user in Model)
+                            {
+                                <tr>
+                                    <td class="">@user.ProjectName</td>
+                                    <td class="">@user.Status</td>
+                                    <td class="">@user.Added</td>
+
+                                    @if (user.Type)
+                                    {
+                                        <td class="">Bussiness</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="">Personal </td >
+                                    }
+
+                                    <td class="">@user.Contact</td>
+                                    <td class="">@user.Action</td>
+                                    <td class="">@user.Assignee</td>
+                                    <td class="">@user.BidDate</td>
+                                    <td class="">
+                                        <a href="#">
+                                            <iconify-icon icon="material-symbols:download" width="1.5em" height="1.5em" style="color: #8a8a8a"></iconify-icon>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -244,7 +273,7 @@
 @section Scripts {
     <script>
         $('.table').DataTable({
-            "pageLength": 1,
+            "pageLength": 5,
             "lengthMenu": [[1, 2, 3, 4, 5], ["One", "Two", "Three", "Four", "Five"]],
             "columnDefs": [
                 { "orderable": false, "targets": [] },

@@ -45,14 +45,14 @@ namespace Field_Groove.Infrastructure.Migrations
                     b.Property<long?>("Contact")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("ProjectName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("Type")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
