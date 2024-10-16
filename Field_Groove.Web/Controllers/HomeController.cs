@@ -3,7 +3,9 @@ using Field_Groove.Domain.Models;
 using Field_Groove.Infrastructure.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using System.Text;
 
 namespace Field_Groove.Web.Controllers
 {
@@ -56,6 +58,23 @@ namespace Field_Groove.Web.Controllers
                 await unitOfWork.Save();
             }
             return RedirectToAction("Leads");
+        }
+
+        [HttpGet("download-csv")]
+        public async Task<IActionResult> DownloadCsv()
+        {
+            var records = await unitOfWork.Leads.GetAll(); ;
+
+            var csv = new StringBuilder();
+            csv.AppendLine("ID,Project Name,Status,Added,Type,Contact,Action,Assignee,Bid Date");
+
+            foreach (var record in records)
+            {
+                csv.AppendLine($"{record.Id},{record.ProjectName},{record.Status},{record.Added},{record.Type},{record.Contact},{record.Action},{record.Assignee},{record.BidDate}");
+            }
+
+            byte[] buffer = Encoding.UTF8.GetBytes(csv.ToString());
+            return File(buffer, "text/csv", "data.csv");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
