@@ -1,0 +1,389 @@
+﻿<div class="d-flex flex-column min-vh-100">
+    <header class="hdcol p-0 m-0 sticky-top">
+        <nav class="navbar navbar-expand-lg text-white  p-0 m-0">
+            <div>
+                <span>FIELD</span> <span class="hdTextTransparent">GROOVE</span>
+
+            </div>
+            <span class="vr ms-2" style="opacity:1;"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto" style="">
+                    <li class="nav-item mx-2 text-white">
+                        <a class="nav-link active text-white" aria-current="page" href="#Leads">Leads</a> <vr class="bg-white" />
+                    </li>
+                    <li class="vr" style="opacity:1;"></li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link  text-white" aria-current="page" href="#home">Opportunities</a>
+                    </li>
+                    <li class="vr" style="opacity:1;"></li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link text-white" aria-current="page" href="#home">Jobs</a>
+                    </li>
+                    <li class="vr" style="opacity:1;"></li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link text-white" aria-current="page" href="#home">Leads</a>
+                    </li>
+                    <li class="vr" style="opacity:1;"></li>
+                    <li class="nav-item dropdown mx-2">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Accounting </a>
+                    </li>
+                    <li class="vr" style="opacity:1;"></li>
+                    <li class="nav-item dropdown mx-2">
+                        <a class="nav-link  dropdown-toggle text-white" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Customers </a>
+                    </li>
+                    <li class="vr" style="opacity:1;"></li>
+                    <li class="nav-item dropdown mx-2">
+                        <a class="nav-link  dropdown-toggle text-white" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Inventory </a>
+                    </li>
+                    <li class="vr" style="opacity:1;"></li>
+                    <li class="nav-item dropdown mx-2">
+                        <a class="nav-link  dropdown-toggle text-white" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Dispatcher </a>
+                    </li>
+                    <li class="vr" style="opacity:1;"></li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="d-flex align-items-center mx-3 bg-white rounded-pill">
+                        <iconify-icon icon="material-symbols:search" width="30" style="color:black;" class="ps-2"></iconify-icon>
+                        <input type="search" class="form-control shadow-none border-white rounded-pill" placeholder="Search anything..." aria-label="Search" style="" />
+                    </li>
+
+                    <li class="d-flex align-items-center me-1">
+                        <iconify-icon icon="codicon:account" style="color: white;" width="35"></iconify-icon>
+                    </li>
+                    <li class="d-flex align-items-center me-3 fs-6">
+                        <span class="text-white mx-2 ">Hariprakash</span>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="">
+        <div class="row m-0 p-0 flex-fill">
+            <div class="col-1 m-0 p-0" style="background-color:#E8E8E8;width:115px;">
+                <div class="sticky-top" style="top: 60px;">
+                    <div class="d-flex flex-column align-items-center my-3">
+                        <iconify-icon icon="pajamas:task-done" style="color: gray;" width="40" height="40"></iconify-icon>
+                        <span class="side-bar-font my-1">Tasks</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center mb-3">
+                        <iconify-icon icon="uil:calender" style="color: gray;" width="40" height="40"></iconify-icon>
+                        <span class="side-bar-font my-1">Calender</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center mb-3">
+                        <iconify-icon icon="mdi:chart-bar" style="color: gray;" width="40" height="40"></iconify-icon>
+                        <span class="side-bar-font my-1">Reports</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center mb-3">
+                        <iconify-icon icon="fa-solid:users" style="color: gray;" width="40" height="40"></iconify-icon>
+                        <span class="side-bar-font my-1">Users</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center mb-3">
+                        <iconify-icon icon="lets-icons:setting-fill" style="color: gray;" width="40" height="40"></iconify-icon>
+                        <span class="side-bar-font my-1">Settings</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center mb-3">
+                        <iconify-icon icon="ph:question-fill" style="color: gray;" width="40" height="40"></iconify-icon>
+                        <span class="side-bar-font my-1">Supports</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center mb-3">
+                        <iconify-icon icon="bi:speedometer2" style="color: gray;" width="40" height="40"></iconify-icon>
+                        <span class="side-bar-font my-1">Super Admin</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-8 p-0 border">
+                <div class="d-flex align-items-center ps-3 border-bottom" style="height:100px;">
+                    <h1>Create Lead</h1>
+                </div>
+                <div class="ps-3 border-bottom pt-2">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a class="text-decoration-none text-dark fs-5" asp-controller="Home" asp-action="Leads">Leads</a></li>
+                            <li class="breadcrumb-item active text-dark fs-5" aria-current="page">Create Lead</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="px-3 pt-3 mb-3">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="Lead_Information-tab" data-bs-toggle="tab" data-bs-target="#Lead_Information" type="button" role="tab" aria-controls="home" aria-selected="true">Lead Information</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="Contacts-tab" data-bs-toggle="tab" data-bs-target="#Contacts" type="button" role="tab" aria-controls="Contacts" aria-selected="false">Contacts(0)</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="Document-tab" data-bs-toggle="tab" data-bs-target="#Document" type="button" role="tab" aria-controls="Document" aria-selected="false">Document(0)</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="Photos-tab" data-bs-toggle="tab" data-bs-target="#Photos" type="button" role="tab" aria-controls="Photos" aria-selected="false">Photos(0)</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content border" id="myTabContent">
+                        <div class="tab-pane fade show active " id="Lead_Information" role="tabpanel" aria-labelledby="Lead_Information-tab">
+                            <div class="vstack gap-4 mt-4">
+                                <div class="row m-0 p-0">
+                                    <div class="col-2">
+                                        Account Type
+                                    </div>
+                                    <div class="col-2">
+                                        <input type="checkbox" class="form-check-input shadow-none" />
+                                        <span>Business Account</span>
+                                    </div>
+                                </div>
+                                <div class="row m-0 p-0">
+                                    <div class="col-2">
+                                        Status
+                                    </div>
+                                    <div class="col-3">
+                                        <select class="py-2 rounded-3 w-100">
+                                            <option>Select a Status...</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row m-0 p-0">
+                                    <div class="col-2">
+                                        Terms
+                                    </div>
+                                    <div class="col-3">
+                                        <select class="py-2 rounded-3 w-100">
+                                            <option>Select a Terms...</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row m-0 p-0">
+                                    <div class="col-2">
+                                        Project Name
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" class="w-100 py-2 form-control shadow-none border-black " disabled />
+                                    </div>
+                                </div>
+                                <div class="row m-0 p-0">
+                                    <div class="col-2 d-flex align-items-center">
+                                        Contact Information
+                                    </div>
+                                    <div class="col-10">
+                                        <table class="table border">
+                                            <thead>
+                                                <tr>
+                                                    <th>Company Name</th>
+                                                    <th>First Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>Lead Source</th>
+                                                    <th>Location</th>
+                                                </tr>
+                                            </thead>
+                                            <tboady>
+                                                <tr>
+                                                    <td style="width:20%;" >
+                                                        <input type="text" placeholder="Company Name" class="form-control shadow-none" disabled />
+                                                    </td>
+                                                    <td style="width:20%;">
+                                                        <input type="text" placeholder="First Name" class="form-control shadow-none" disabled />
+                                                    </td>
+                                                    <td style="width:20%;">
+                                                        <input type="text" placeholder="Last Name" class="form-control shadow-none" disabled />
+                                                    </td>
+                                                    <td  style="width:20%;">
+                                                        <select class="rounded-3 w-100">
+                                                            <option>Select a lead source</option>
+                                                        </select>
+                                                    </td>
+                                                    <td style="width:20%;">
+                                                        <select class="rounded-3 w-100">
+                                                            <option>New York(NY)</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            </tboady>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row m-0 p-0">
+                                    <div class="col-2 d-flex align-items-center">
+                                        Contact Details
+                                    </div>
+                                    <div class="col-10">
+                                        <table class="table border">
+                                            <thead>
+                                                <tr>
+                                                    <th>Home</th>
+                                                    <th>Cell</th>
+                                                    <th>Work</th>
+                                                    <th>Email</th>
+                                                    <th>Website</th>
+                                                </tr>
+                                            </thead>
+                                            <tboady>
+                                                <tr>
+                                                    <td style="width:20%;">
+                                                        <input type="text" class="form-control shadow-none" disabled />
+                                                    </td>
+                                                    <td style="width:20%;">
+                                                        <input type="text" class="form-control shadow-none" disabled />
+                                                    </td style="width:20%;">
+                                                    <td style="width:20%;">
+                                                        <input type="text" class="form-control shadow-none" disabled />
+                                                    </td>
+                                                    <td style="width:20%;">
+                                                        <input type="text" class="form-control shadow-none" disabled />
+                                                    </td>
+                                                    <td style="width:20%;">
+                                                        <input type="text" class="form-control shadow-none" disabled />
+                                                    </td>
+                                                </tr>
+                                            </tboady>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row m-0 p-0">
+                                    <div class="col-2 d-flex align-items-center">
+                                        Project Address
+                                    </div>
+                                    <div class="col-10">
+                                        <table class="table border">
+                                            <thead>
+                                                <tr>
+                                                    <th>Address 1</th>
+                                                    <th>Address 2</th>
+                                                    <th>City</th>
+                                                    <th>State</th>
+                                                    <th>Zip</th>
+                                                </tr>
+                                            </thead>
+                                            <tboady>
+                                                <tr>
+                                                    <td style="width:10%;">
+                                                        <input type="text" class="form-control shadow-none" disabled />
+                                                    </td>
+                                                    <td style="width:10%;">
+                                                        <input type="text" class="form-control shadow-none" disabled />
+                                                    </td>
+                                                    <td style="width:10%;">
+                                                        <input type="text" class="form-control shadow-none" disabled />
+                                                    </td>
+                                                    <td style="width:10%;">
+                                                        <input type="text" class="form-control shadow-none" disabled />
+                                                    </td>
+                                                    <td style="width:10%;">
+                                                        <input type="text" class="form-control shadow-none" disabled />
+                                                    </td>
+                                                </tr>
+                                            </tboady>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row m-0 p-0">
+                                    <div class="col-2">
+                                        Billing Address
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="checkbox" class="form-check-input shadow-none" />
+                                        <span>Same as Project Address</span>
+                                    </div>
+                                </div>
+                                <div class="row m-0 p-0">
+                                    <div class="col-2">
+                                        Bid Date
+                                    </div>
+                                    <div class="col-3 bg-white hstack" " >
+                                        <div class="d-flex align-items-center">
+                                            <iconify-icon icon="line-md:calendar" width="25"></iconify-icon>
+                                        </div>
+                                        <div class="border border-0">
+                                            <input type="date" />
+                                        </div>
+                                        <div class="px-0 border border-0">
+                                            <select class="">
+                                                <option>Time</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-0 p-0">
+                                    <div class="col-2 ">
+                                        Assigned User
+                                    </div>
+                                    <div class="col-2">
+                                        <select class="rounded-3 w-100">
+                                            <option>Hariprakash</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-2 d-flex align-items-baseline p-0 m-0">
+                                        <input type="checkbox" class="form-check-input mx-2 shadow-none" />
+                                        <span>Notify via Email</span>
+                                    </div>
+                                </div>
+                                <div class="row m-0 p-0">
+                                    <div class="col-2 ">
+                                        Action Needed
+                                    </div>
+                                    <div class="col-2">
+                                        <select class="rounded-3 w-100">
+                                            <option>Select an action </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-3 d-flex align-items-baseline p-0 m-0">
+                                        <input type="checkbox" class="form-check-input mx-2 shadow-none" />
+                                        <span>Create & Assign Task For Action?</span>
+                                    </div>
+                                </div>
+                                <div class="row m-0 p-0">
+                                    <div class="col-2 ">
+                                        Location <iconify-icon icon="mage:question-mark-circle-fill" style="color: #3e89db"></iconify-icon>
+
+                                    </div>
+                                    <div class="col-2">
+                                        <button class="btn text-white" style="background-color: #27c44d;border-radius:10px;">New York(YK)</button>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="mb-3">
+                                    <div class="float-end me-3">
+                                        <button type="button" class="btn text-white" style="background-color: #3e89db">Save</button>
+                                        <button type="button" class="btn text-white" style="background-color: #3e89db">Save & Convert to Opportunity </button>
+                                        <button type="button" class="btn btn-secondary">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane fade p-5 text-center" id="Contacts" role="tabpanel" aria-labelledby="Contacts-tab">... Contact Details </div>
+                        <div class="tab-pane fade p-5 text-center" id="Document" role="tabpanel" aria-labelledby="Document-tab">... Documents Details </div>
+                        <div class="tab-pane fade p-5 text-center" id="Photos" role="tabpanel" aria-labelledby="Photos-tab">... Photo Details </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-3 d-flex flex-column" >
+                <div class="p-3 border-1 flex-fill mt-3" style="border:dashed;">
+                    <div class="row m-0 p-0 border ">
+                        <div class="col-5 border-end py-3">
+                            <img src="/Assets/Images/Profile.jpg" class="border" alt="profile Demo" width="100" height="100" />
+                        </div>
+                        <div class="col-7 py-3">
+                            <textarea>Start the discussion by entering a notes...  </textarea>
+                            <div class="float-end">
+                                <button type="button" class="btn text-white float-end" style="background-color: #3e89db">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                    <div class=" mt-4 border-end border-1 " style="border:dashed;" />
+                </div>  
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
