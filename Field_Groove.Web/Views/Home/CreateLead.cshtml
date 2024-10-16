@@ -1,4 +1,19 @@
-﻿<div class="d-flex flex-column min-vh-100">
+﻿<head>
+    <style>
+        .hdTextTransparent{
+            opacity:0.5;
+        }
+        .hdcol{
+            background-color: #4a86ff;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: ">";
+     
+        }
+    </style>
+</head>
+<div class="d-flex flex-column min-vh-100">
     <header class="hdcol p-0 m-0 sticky-top">
         <nav class="navbar navbar-expand-lg text-white  p-0 m-0">
             <div>
@@ -46,7 +61,7 @@
                     <li class="vr" style="opacity:1;"></li>
                 </ul>
                 <ul class="navbar-nav">
-                    <li class="d-flex align-items-center mx-3 bg-white rounded-pill">
+                    <li class="d-flex align-items-center mx-3 bg-white rounded-pill  my-1">
                         <iconify-icon icon="material-symbols:search" width="30" style="color:black;" class="ps-2"></iconify-icon>
                         <input type="search" class="form-control shadow-none border-white rounded-pill" placeholder="Search anything..." aria-label="Search" style="" />
                     </li>
@@ -97,7 +112,7 @@
 
             </div>
 
-            <div class="col-8 p-0 border">
+            <div class="col p-0 border">
                 <div class="d-flex align-items-center ps-3 border-bottom" style="height:100px;">
                     <h1>Create Lead</h1>
                 </div>
@@ -368,7 +383,7 @@
                 <div class="p-3 border-1 flex-fill mt-3" style="border:dashed;">
                     <div class="row m-0 p-0 border ">
                         <div class="col-5 border-end py-3">
-                            <img src="/Assets/Images/Profile.jpg" class="border" alt="profile Demo" width="100" height="100" />
+                            <img src="/images/Profile.jpg" class="border" alt="profile Demo" width="100" height="100" />
                         </div>
                         <div class="col-7 py-3">
                             <textarea>Start the discussion by entering a notes...  </textarea>
