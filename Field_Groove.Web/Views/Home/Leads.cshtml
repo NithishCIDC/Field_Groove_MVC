@@ -10,13 +10,14 @@
             margin-right: 10px;
             background-color: white;
         }
-        #dt-search-0{
-            background-color:white;
+
+        #dt-search-0 {
+            background-color: white;
         }
-        </style>
+    </style>
 </head>
-<div class="vh-100 d-flex flex-column overflow-hidden">
-    <div class="d-flex justify-content-between" style="background-color:#6389FB">
+<div class="min-vh-100 d-flex flex-column">
+    <div class="d-flex justify-content-between sticky-top flex-wrap" style="background-color:#6389FB;">
         <div>
             <ul class="hstack list-unstyled m-0">
                 <li class="py-1">
@@ -90,40 +91,43 @@
             </div>
         </div>
     </div>
-    <div class="row p-0 m-0 flex-fill overflow-auto">
+    <div class="row p-0 m-0 flex-fill">
         @*Side Bar*@
         <div class="col-1 p-0 m-0" style="font-size:12px;background-color:#E8E8E8;width:7.2%;">
-            <div class="d-flex flex-column align-items-center mt-4">
-                <iconify-icon icon="pajamas:task-done" style="color: gray;" width="40" height="40"></iconify-icon>
-                <span class="my-1">Tasks</span>
+            <div class="sticky-top" style="top:70px">
+                <div class="d-flex flex-column align-items-center mt-4">
+                    <iconify-icon icon="pajamas:task-done" style="color: gray;" width="40" height="40"></iconify-icon>
+                    <span class="my-1">Tasks</span>
+                </div>
+                <div class="d-flex flex-column align-items-center mt-4">
+                    <iconify-icon icon="uil:calender" style="color: gray;" width="40" height="40"></iconify-icon>
+                    <span class="my-1">Calender</span>
+                </div>
+                <div class="d-flex flex-column align-items-center mt-4">
+                    <iconify-icon icon="mdi:chart-bar" style="color: gray;" width="40" height="40"></iconify-icon>
+                    <span class="my-1">Reports</span>
+                </div>
+                <div class="d-flex flex-column align-items-center mt-4">
+                    <iconify-icon icon="fa-solid:users" style="color: gray;" width="40" height="40"></iconify-icon>
+                    <span class="my-1">Users</span>
+                </div>
+                <div class="d-flex flex-column align-items-center mt-4">
+                    <iconify-icon icon="lets-icons:setting-fill" style="color: gray;" width="40" height="40"></iconify-icon>
+                    <span class="my-1">Settings</span>
+                </div>
+                <div class="d-flex flex-column align-items-center mt-4">
+                    <iconify-icon icon="ph:question-fill" style="color: gray;" width="40" height="40"></iconify-icon>
+                    <span class="my-1">Supports</span>
+                </div>
+                <div class="d-flex flex-column align-items-center mt-4">
+                    <iconify-icon icon="bi:speedometer2" style="color: gray;" width="40" height="40"></iconify-icon>
+                    <span class="my-1">Super Admin</span>
+                </div>
             </div>
-            <div class="d-flex flex-column align-items-center mt-4">
-                <iconify-icon icon="uil:calender" style="color: gray;" width="40" height="40"></iconify-icon>
-                <span class="my-1">Calender</span>
-            </div>
-            <div class="d-flex flex-column align-items-center mt-4">
-                <iconify-icon icon="mdi:chart-bar" style="color: gray;" width="40" height="40"></iconify-icon>
-                <span class="my-1">Reports</span>
-            </div>
-            <div class="d-flex flex-column align-items-center mt-4">
-                <iconify-icon icon="fa-solid:users" style="color: gray;" width="40" height="40"></iconify-icon>
-                <span class="my-1">Users</span>
-            </div>
-            <div class="d-flex flex-column align-items-center mt-4">
-                <iconify-icon icon="lets-icons:setting-fill" style="color: gray;" width="40" height="40"></iconify-icon>
-                <span class="my-1">Settings</span>
-            </div>
-            <div class="d-flex flex-column align-items-center mt-4">
-                <iconify-icon icon="ph:question-fill" style="color: gray;" width="40" height="40"></iconify-icon>
-                <span class="my-1">Supports</span>
-            </div>
-            <div class="d-flex flex-column align-items-center mt-4">
-                <iconify-icon icon="bi:speedometer2" style="color: gray;" width="40" height="40"></iconify-icon>
-                <span class="my-1">Super Admin</span>
-            </div>
+
         </div>
         @*Main Content*@
-        <div class="col p-0 m-0" style="height:95vh;overflow-y:auto">
+        <div class="col p-0 m-0">
             <div class="d-flex justify-content-between bg-secondary bg-opacity-10 px-4 py-4">
                 <div><h2>Leads</h2></div>
                 <div class="hstack gap-3">
@@ -209,7 +213,7 @@
                     </div>
                 </div>
                 <div class="card mt-4 p-3 bg-secondary bg-opacity-10">
-                    <table class="table" id="table">
+                    <table class="table table-responsive" id="table">
                         <thead>
                             <tr>
                                 <th scope="col">Name</th>
@@ -228,7 +232,7 @@
                     </table>
                 </div>
             </div>
-            
+
             <div class="position-sticky bottom-0 bg-white text-center text-secondary" style="font-size:14px">
                 <hr />
                 <div class="py-2">&copy; FieldGroove, LLC 2024, All Rights Reserved. </div>
@@ -240,9 +244,8 @@
 @section Scripts {
     <script>
         $('.table').DataTable({
-            "pageLength": 1, 
+            "pageLength": 1,
             "lengthMenu": [[1, 2, 3, 4, 5], ["One", "Two", "Three", "Four", "Five"]],
-            "lengthText":"Entries",
             "columnDefs": [
                 { "orderable": false, "targets": [] },
                 { "searchable": false, "targets": [] }
