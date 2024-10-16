@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Security.Cryptography;
+using Field_Groove.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 builder.Services.AddFluentValidationAutoValidation()
 	.AddFluentValidationClientsideAdapters()
 	.AddValidatorsFromAssemblyContaining<LoginValidator>();
+
+builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
