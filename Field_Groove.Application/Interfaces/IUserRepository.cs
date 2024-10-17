@@ -6,5 +6,7 @@ namespace Field_Groove.Application.Interfaces
 	{
 		public Task Create(RegisterModel entity);
 		public Task IsValidUser(LoginModel entity);
-	}
+		public Task<string> IsValidEmail(string email);
+
+    }
 }

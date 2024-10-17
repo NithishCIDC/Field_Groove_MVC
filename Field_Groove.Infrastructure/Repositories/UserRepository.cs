@@ -37,5 +37,15 @@ namespace Field_Groove.Infrastructure.Repositories
 			}
 		}
 
+        public async Task<string> IsValidEmail(string email)
+        {
+            var UserDetail = await dbContext.UserData.FindAsync(email);
+            if (UserDetail is null)
+            {
+                throw new Exception("User not Found");
+            }
+			return UserDetail.Password!;
+        }
+
     }
 }
