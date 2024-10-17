@@ -60,6 +60,16 @@ namespace Field_Groove.Web.Controllers
             return RedirectToAction("Leads");
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await unitOfWork.Leads.Delete(id);
+            await unitOfWork.Save();
+
+            return RedirectToAction("Leads");
+        }
+
+
         [HttpGet("download-csv")]
         public async Task<IActionResult> DownloadCsv()
         {
