@@ -1,82 +1,87 @@
 ﻿@model LeadsModel
 <head>
     <style>
-        .hdTextTransparent{
-            opacity:0.5;
-        }
-        .hdcol{
-            background-color: #4a86ff;
-        }
-
-        .breadcrumb-item + .breadcrumb-item::before {
-            content: ">";
-     
+         .vr {
+            color: white;
+            opacity: 1;
         }
     </style>
 </head>
 <div class="d-flex flex-column min-vh-100">
-    <header class="hdcol p-0 m-0 sticky-top">
-        <nav class="navbar navbar-expand-lg text-white  p-0 m-0">
-            <div>
-                <span>FIELD</span> <span class="hdTextTransparent">GROOVE</span>
-
+     <div class="d-flex justify-content-between sticky-top" style="background-color:#6389FB">
+        <div>
+            <ul class="hstack list-unstyled m-0">
+                <li class="py-1">
+                    <a class="btn"><span class="fw-bold text-white">FIELD</span> <span class="text-white fw-light opacity-50">GROOVE</span></a>
+                </li>
+                <li class="vr"></li>
+                <li><a asp-controller="Home" asp-action="Leads" class="btn text-white">Leads</a></li>
+                <li class="vr"></li>
+                <li><a class="btn text-white">Opportunities</a></li>
+                <li class="vr"></li>
+                <li><a class="btn text-white">Jobs</a></li>
+                <li class="vr"></li>
+                <li>
+                    <button class="btn text-white dropdown-toggle text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+                        Accounting
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">flooring</a></li>
+                        <li><a class="dropdown-item" href="#">roofing</a></li>
+                        <li><a class="dropdown-item" href="#">drywall</a></li>
+                        <li><a class="dropdown-item" href="#">insulation</a></li>
+                    </ul>
+                </li>
+                <li class="vr"></li>
+                <li>
+                    <button class="btn text-white dropdown-toggle text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+                        Customers
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">flooring</a></li>
+                        <li><a class="dropdown-item" href="#">roofing</a></li>
+                        <li><a class="dropdown-item" href="#">drywall</a></li>
+                        <li><a class="dropdown-item" href="#">insulation</a></li>
+                    </ul>
+                </li>
+                <li class="vr"></li>
+                <li>
+                    <button class="btn text-white dropdown-toggle text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+                        Inventory
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">flooring</a></li>
+                        <li><a class="dropdown-item" href="#">roofing</a></li>
+                        <li><a class="dropdown-item" href="#">drywall</a></li>
+                        <li><a class="dropdown-item" href="#">insulation</a></li>
+                    </ul>
+                </li>
+                <li class="vr"></li>
+                <li>
+                    <button class="btn text-white dropdown-toggle text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dispatcher
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">flooring</a></li>
+                        <li><a class="dropdown-item" href="#">roofing</a></li>
+                        <li><a class="dropdown-item" href="#">drywall</a></li>
+                        <li><a class="dropdown-item" href="#">insulation</a></li>
+                    </ul>
+                </li>
+                <li class="vr"></li>
+            </ul>
+        </div>
+        <div class="hstack gap-2 px-3">
+            <div class="d-flex align-items-center bg-white rounded-pill px-2 py-1">
+                <iconify-icon icon="fe:search" width="1.2em" height="1.2em"></iconify-icon>
+                <input type="search" placeholder="Search anything..." class="border-0 bg-transparent ps-1" style="font-size:14px" />
             </div>
-            <span class="vr ms-2" style="opacity:1;"></span>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto" style="">
-                    <li class="nav-item mx-2 text-white">
-                        <a asp-controller="Home" asp-action="Leads" class="nav-link active text-white" aria-current="page" >Leads</a> <vr class="bg-white" />
-                    </li>
-                    <li class="vr" style="opacity:1;"></li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link  text-white" aria-current="page" href="#home">Opportunities</a>
-                    </li>
-                    <li class="vr" style="opacity:1;"></li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link text-white" aria-current="page" href="#home">Jobs</a>
-                    </li>
-                    <li class="vr" style="opacity:1;"></li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link text-white" aria-current="page" href="#home">Leads</a>
-                    </li>
-                    <li class="vr" style="opacity:1;"></li>
-                    <li class="nav-item dropdown mx-2">
-                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Accounting </a>
-                    </li>
-                    <li class="vr" style="opacity:1;"></li>
-                    <li class="nav-item dropdown mx-2">
-                        <a class="nav-link  dropdown-toggle text-white" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Customers </a>
-                    </li>
-                    <li class="vr" style="opacity:1;"></li>
-                    <li class="nav-item dropdown mx-2">
-                        <a class="nav-link  dropdown-toggle text-white" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Inventory </a>
-                    </li>
-                    <li class="vr" style="opacity:1;"></li>
-                    <li class="nav-item dropdown mx-2">
-                        <a class="nav-link  dropdown-toggle text-white" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Dispatcher </a>
-                    </li>
-                    <li class="vr" style="opacity:1;"></li>
-                </ul>
-                <ul class="navbar-nav">
-                    <li class="d-flex align-items-center mx-3 bg-white rounded-pill  my-1">
-                        <iconify-icon icon="material-symbols:search" width="30" style="color:black;" class="ps-2"></iconify-icon>
-                        <input type="search" class="form-control shadow-none border-white rounded-pill" placeholder="Search anything..." aria-label="Search" style="" />
-                    </li>
-
-                    <li class="d-flex align-items-center me-1">
-                        <iconify-icon icon="codicon:account" style="color: white;" width="35"></iconify-icon>
-                    </li>
-                    <li class="d-flex align-items-center me-3 fs-6">
-                        <span class="text-white mx-2 ">@ViewBag.Username</span>
-                    </li>
-                </ul>
+            <div class="hstack gap-2">
+                <iconify-icon icon="gg:profile" width="1.5em" height="1.5em"></iconify-icon>
+                <p class="m-0 text-white">@ViewBag.Username</p>
             </div>
-        </nav>
-    </header>
+        </div>
+    </div>
     <div class="">
         <div class="row m-0 p-0 flex-fill">
             <div class="col-1 m-0 p-0" style="background-color:#E8E8E8;width:115px;">
@@ -115,14 +120,15 @@
 
             <div class="col p-0 border">
                 <div class="d-flex align-items-center ps-3 border-bottom" style="height:100px;">
-                    <h1>Create Lead</h1>
+                    <h1>Update Lead</h1>
                 </div>
                 <div class="ps-3 border-bottom pt-2">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a class="text-decoration-none text-dark fs-5" asp-controller="Home" asp-action="Leads">Leads</a></li>
-                            <li class="breadcrumb-item active text-dark fs-5" aria-current="page">Create Lead</li>
-                        </ol>
+                    <nav>
+                        <ul class="hstack list-unstyled">
+                            <li class="breadcrumb-item"><a class="fs-5" asp-controller="Home" asp-action="Leads">Leads</a></li>
+                            <li class="d-flex align-items-center"><iconify-icon icon="fe:arrow-right" width="1.3em" height="1.3em"  style="color: black"></iconify-icon></li>
+                            <li class="fs-5">Create Lead</li>
+                        </ul>
                     </nav>
                 </div>
                 <div class="px-3 pt-3 mb-3">
