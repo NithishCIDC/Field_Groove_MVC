@@ -60,6 +60,13 @@ namespace Field_Groove.Web.Controllers
             return RedirectToAction("Leads");
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var User = await unitOfWork.Leads.GetById(id);
+            return View(User);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Edit(LeadsModel model)
         {
