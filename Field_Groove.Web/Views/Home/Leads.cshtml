@@ -251,11 +251,13 @@
                                     <td class="">@user.Assignee</td>
                                     <td class="">@user.BidDate</td>
                                     <td class="">
+                                        @*Download CSV File*@
                                         <a href="#">
                                             <a asp-controller="Home" asp-action="DownloadCsv"><iconify-icon icon="material-symbols:download" width="1.5em" height="1.5em" style="color: #8a8a8a"></iconify-icon></a>
                                         </a>
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#DeleteModal-@user.Id"><i class="bi bi-trash-fill"></i></button>
 
+                                        @*Delete Model*@
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#DeleteModal-@user.Id"><i class="bi bi-trash-fill"></i></button>
                                         <div class="modal fade" id="DeleteModal-@user.Id" tabindex="-1" aria-labelledby="DeleteModalLabel-@user.Id" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
@@ -270,20 +272,28 @@
                                             </div>
                                         </div>
 
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#UpdateModal-@user.Id">Update</button>
-                                        <div class="modal fade" id="UpdateModal-@user.Id" tabindex="-1" aria-labelledby="UpdateModalLabel-@user.Id" aria-hidden="true">
+                                        @*Update model*@
+                                        <a  class="btn btn-danger" asp-action="EditLeads" asp-controller="Home" asp-route-id="@user.Id">Update</a>
+
+                                        @*<div class="modal fade" id="UpdateModal-@user.Id" tabindex="-1" aria-labelledby="UpdateModalLabel-@user.Id" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
                                                     <div class="modal-body">
-                                                        <form method="post" action="Edit">
+                                                        <form method="post" asp-action="Edit" asp-controller="Home">
+                                                            @Html.AntiForgeryToken()
+                                                            <div>
+                                                                <label asp-for="@user.Id" class="form-label">User ID</label>
+                                                                <input asp-for="@user.Id" id="modelID" type="number" class="form-control shadow-none" readonly/>
+                                                                <span asp-validation-for="@user.Id" class="text-danger" />
+                                                            </div>
                                                             <div>
                                                                 <label asp-for="@user.ProjectName" class="form-label">Project Name</label>
-                                                                <input asp-for="@user.ProjectName" type="text" class="form-control shadow-none" />
+                                                                <input asp-for="@user.ProjectName" id="modelProjectName" type="text" class="form-control shadow-none" />
                                                                 <span asp-validation-for="@user.ProjectName" class="text-danger" />
                                                             </div>
                                                             <div>
                                                                 <label asp-for="@user.Status" class="form-label"></label> 
-                                                                <select asp-for="@user.Status" class="form-select">
+                                                                <select asp-for="@user.Status" id="modelStatus" class="form-select">
                                                                     <option>Contacted</option>
                                                                     <option>Not Contacted</option>
                                                                 </select>
@@ -291,22 +301,22 @@
                                                             </div>
                                                             <div>
                                                                 <label asp-for="@user.Added" class="form-label"></label>
-                                                                <input asp-for="@user.Added" type="text" class="form-control shadow-none" />
+                                                                <input asp-for="@user.Added" id="modelAdded" type="datetime-local" class="form-control shadow-none" />
                                                                 <span asp-validation-for="@user.Added" class="text-danger" />
                                                             </div>
                                                             <div>
-                                                                <label asp-for="@user.Type" class="form-check-label">Account Type</label>
-                                                                <input asp-for="@user" type="checkbox" class="form-check-input shadow-none" />
-                                                                <span asp-validation-for="@user" class="text-danger" />
+                                                                <input asp-for="@user.Type" id="modelAdded" type="checkbox" class="form-check-input shadow-none" />
+                                                                <label asp-for="@user.Type" class="form-check-label">Bussiness</label>
+                                                                <span asp-validation-for="@user.Type" class="text-danger" />
                                                             </div>
                                                             <div>
                                                                 <label asp-for="@user.Contact" class="form-label"></label>
-                                                                <input asp-for="@user.Contact" type="number" class="form-control shadow-none" />
+                                                                <input asp-for="@user.Contact" id="modelContact" type="number" class="form-control shadow-none" />
                                                                 <span asp-validation-for="@user.Contact" class="text-danger" />
                                                             </div>
                                                             <div>
                                                                 <label asp-for="@user.Action" class="form-label"></label> 
-                                                                <select asp-for="@user.Action" class="form-select">
+                                                                <select asp-for="@user.Action" id="modelAction" class="form-select">
                                                                     <option>Quote</option>
                                                                     <option>Not Quote</option>
                                                                 </select>
@@ -314,7 +324,7 @@
                                                             </div>
                                                             <div>
                                                                 <label asp-for="@user.Assignee" class="form-label"></label> 
-                                                                <select asp-for="@user.Assignee" class="form-select">
+                                                                <select asp-for="@user.Assignee" id="modelAssignee" class="form-select">
                                                                     <option>Hariprakash</option>
                                                                     <option>Nithish MBBS</option>
                                                                     <option>Boopathi Astronaut</option>
@@ -324,19 +334,18 @@
                                                             </div>
                                                             <div>
                                                                 <label asp-for="@user.BidDate" class="form-label">Bid Date</label>
-                                                                <input asp-for="@user.BidDate" type="datetime-local" class="form-control shadow-none" />
+                                                                <input asp-for="@user.BidDate" id="modelBidDate" type="datetime-local" class="form-control shadow-none" />
                                                                 <span asp-validation-for="@user.BidDate" class="text-danger" />
                                                             </div>
                                                             <div class="">
                                                                 <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
-                                                                <button type="submit" class="btn btn-success"> Update</button>
+                                                                <button type="submit" class="btn btn-success">Update</button>
                                                             </div>
                                                         </form>
                                                     </div>
-
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>*@
 
                                     </td>
                                 </tr>

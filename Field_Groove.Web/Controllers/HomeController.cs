@@ -38,21 +38,21 @@ namespace Field_Groove.Web.Controllers
         public async Task<IActionResult> Leads()
         {
             ViewBag.Username = _configuration["UserDetails:Email"];
-            var User =await unitOfWork.Leads.GetAll();
+            var User = await unitOfWork.Leads.GetAll();
             return View(User);
         }
 
         [HttpGet]
-        public IActionResult CreateLead()
+        public IActionResult CreateLeads()
         {
             ViewBag.Username = _configuration["UserDetails:Email"];
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateLead(LeadsModel model)
+        public async Task<IActionResult> CreateLeads(LeadsModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 await unitOfWork.Leads.Add(model);
                 await unitOfWork.Save();
@@ -61,18 +61,22 @@ namespace Field_Groove.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> EditLeads(int id)
         {
             var User = await unitOfWork.Leads.GetById(id);
             return View(User);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(LeadsModel model)
+        public async Task<IActionResult> EditLeads(LeadsModel model)
         {
-            await unitOfWork.Leads.Update(model);
-            await unitOfWork.Save();
-            return RedirectToAction("Leads");
+            if (ModelState.IsValid)
+            {
+                await unitOfWork.Leads.Update(model);
+                await unitOfWork.Save();
+                return Json(new { success = true });
+            }
+            return Json(new { success = false });
         }
 
         [HttpGet]
