@@ -9,6 +9,7 @@
         }
 
         #dt-length-0 {
+            margin-left: 10px;
             margin-right: 10px;
             background-color: white;
         }
@@ -208,9 +209,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="card mt-4 p-3 bg-secondary bg-opacity-10">
-                    <table class="table table-responsive" id="table">
-                        <thead>
+                <div class="card mt-4 p-3">
+                    <table class="table table-responsive table-bordered" id="table">
+                        <thead class="bg-secondary bg-opacity-10">
                             <tr>
                                 <th scope="col">Project Name</th>
                                 <th scope="col">Status</th>
@@ -257,8 +258,11 @@
                                         <div class="modal fade" id="DeleteModal-@user.Id" tabindex="-1" aria-labelledby="DeleteModalLabel-@user.Id" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
+                                                    <div class="modal-header justify-content-center">
+                                                        <h3 class="modal-title">Delete Lead</h3>
+                                                    </div>
                                                     <div class="modal-body">
-                                                        <p>Are you sure you want to delete the User <strong>"@user.ProjectName"</strong>?</p>
+                                                        <p class="text-center">Are you sure you want to delete the User <strong>"@user.ProjectName"</strong>?</p>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -374,7 +378,7 @@
             "language": {
                 "search": "Search :",
                 "searchPlaceholder": 'Search records...',
-                "lengthMenu": '_MENU_Records per page'
+                "lengthMenu": 'Show _MENU_ Entries'
             },
         });
     </script>
