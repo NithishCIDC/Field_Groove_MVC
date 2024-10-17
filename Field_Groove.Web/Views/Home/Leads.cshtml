@@ -269,6 +269,75 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#UpdateModal-@user.Id">Update</button>
+                                        <div class="modal fade" id="UpdateModal-@user.Id" tabindex="-1" aria-labelledby="UpdateModalLabel-@user.Id" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <form method="post" action="Edit">
+                                                            <div>
+                                                                <label asp-for="@user.ProjectName" class="form-label">Project Name</label>
+                                                                <input asp-for="@user.ProjectName" type="text" class="form-control shadow-none" />
+                                                                <span asp-validation-for="@user.ProjectName" class="text-danger" />
+                                                            </div>
+                                                            <div>
+                                                                <label asp-for="@user.Status" class="form-label"></label> 
+                                                                <select asp-for="@user.Status" class="form-select">
+                                                                    <option>Contacted</option>
+                                                                    <option>Not Contacted</option>
+                                                                </select>
+                                                                <span asp-validation-for="@user.Status" class="text-danger" />
+                                                            </div>
+                                                            <div>
+                                                                <label asp-for="@user.Added" class="form-label"></label>
+                                                                <input asp-for="@user.Added" type="text" class="form-control shadow-none" />
+                                                                <span asp-validation-for="@user.Added" class="text-danger" />
+                                                            </div>
+                                                            <div>
+                                                                <label asp-for="@user.Type" class="form-check-label">Account Type</label>
+                                                                <input asp-for="@user" type="checkbox" class="form-check-input shadow-none" />
+                                                                <span asp-validation-for="@user" class="text-danger" />
+                                                            </div>
+                                                            <div>
+                                                                <label asp-for="@user.Contact" class="form-label"></label>
+                                                                <input asp-for="@user.Contact" type="number" class="form-control shadow-none" />
+                                                                <span asp-validation-for="@user.Contact" class="text-danger" />
+                                                            </div>
+                                                            <div>
+                                                                <label asp-for="@user.Action" class="form-label"></label> 
+                                                                <select asp-for="@user.Action" class="form-select">
+                                                                    <option>Quote</option>
+                                                                    <option>Not Quote</option>
+                                                                </select>
+                                                                <span asp-validation-for="@user.Action" class="text-danger" />
+                                                            </div>
+                                                            <div>
+                                                                <label asp-for="@user.Assignee" class="form-label"></label> 
+                                                                <select asp-for="@user.Assignee" class="form-select">
+                                                                    <option>Hariprakash</option>
+                                                                    <option>Nithish MBBS</option>
+                                                                    <option>Boopathi Astronaut</option>
+                                                                    <option>Kesavan Scientist</option>
+                                                                </select>
+                                                                <span asp-validation-for="@user.Assignee" class="text-danger" />
+                                                            </div>
+                                                            <div>
+                                                                <label asp-for="@user.BidDate" class="form-label">Bid Date</label>
+                                                                <input asp-for="@user.BidDate" type="datetime-local" class="form-control shadow-none" />
+                                                                <span asp-validation-for="@user.BidDate" class="text-danger" />
+                                                            </div>
+                                                            <div class="">
+                                                                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-success"> Update</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </td>
                                 </tr>
                             }
