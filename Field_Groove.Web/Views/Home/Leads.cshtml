@@ -274,13 +274,13 @@
     <script>
         $('.table').DataTable({
             "pageLength": 5,
-            "lengthMenu": [[1, 2, 3, 4, 5], ["One", "Two", "Three", "Four", "Five"]],
+            "lengthMenu": [[5, 10, 25, 50, 100], [5, 10, 25, 50, 100]],
             "columnDefs": [
                 { "orderable": false, "targets": [] },
                 { "searchable": false, "targets": [] }
             ],
             "language": {
-                "search": "",
+                "search": "Search :",
                 "searchPlaceholder": 'Search records...',
                 "lengthMenu": '_MENU_Records per page'
             },
