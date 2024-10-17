@@ -12,8 +12,5 @@ namespace Field_Groove.Infrastructure.Repositories
     public class LeadsRepository : GenericRepository<LeadsModel> , ILeadRepository
     {
         public LeadsRepository(ApplicationDbContext dbcontext) : base(dbcontext){ }
-
-
-
     }
 }
