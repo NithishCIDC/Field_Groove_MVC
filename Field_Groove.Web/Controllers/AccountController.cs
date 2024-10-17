@@ -126,5 +126,10 @@ namespace Field_Groove.Web.Controllers
             }
             return RedirectToAction("ChangePassword");
         }
-    }
+		[HttpGet]
+		public IActionResult ChangePassword()
+		{
+			return View();
+		}
+	} 
 }
