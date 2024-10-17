@@ -82,6 +82,13 @@ body {
         overflow: hidden;
     }
 
+.Loginformstyles {
+    position: relative;
+    color: white;
+    background-color: #182446;
+    width: 60%;
+}
+
 .Loginformstyle {
     position: relative;
     color: white;
