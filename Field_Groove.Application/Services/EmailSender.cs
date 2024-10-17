@@ -1,28 +1,31 @@
 ﻿using Field_Groove.Application.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
+using MimeKit;
+using MailKit.Net.Smtp;
+
 
 namespace Field_Groove.Application.Services
 {
     public class EmailSender : IEmailSender
     {
-        public Task EmailSendAsync(string email, string subject, string message)
+        public void EmailSendAsync(string email, string subject, string messageBody)
         {
-            string mail = "2k20cse055@kiot.ac.in";
-            string password = "2k20cse055";
+			var message = new MimeMessage();
+			message.From.Add(new MailboxAddress("Test Project", "2k20cse055@kiot.ac.in"));
+			message.To.Add(new MailboxAddress("Nithish", email));
+			message.Subject = subject;
+			message.Body = new TextPart("plain")
+			{
+				Text = messageBody
+			};
 
-            var client = new SmtpClient("smtp.outlook.com", 587)
-            {
-                EnableSsl = true,
-                Credentials = new NetworkCredential(mail, password)
-            };
+			using (var client = new SmtpClient())
+			{
+				client.Connect("smtp.gmail.com", 587, false);
+				client.Authenticate("2k20cse055@kiot.ac.in", "2k20cse055");
 
-            return client.SendMailAsync(new MailMessage(from: mail,to: email,subject,message));
-        }
+				client.Send(message);
+				client.Disconnect(true);
+			}
+		}
     }
 }

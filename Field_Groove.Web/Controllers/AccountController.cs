@@ -5,7 +5,6 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Microsoft.AspNetCore.Authorization;
 using MimeKit;
 using MailKit.Net.Smtp;
 
@@ -118,24 +117,9 @@ namespace Field_Groove.Web.Controllers
             try
             {
                 string password = await unitOfWork.UserRepository.IsValidEmail(email);
-
-                var message = new MimeMessage();
-                message.From.Add(new MailboxAddress("Test Project", "2k20cse055@kiot.ac.in"));
-                message.To.Add(new MailboxAddress("Nithish" , email));
-                message.Subject = "Feild Groove Reset Password";
-                message.Body = new TextPart("plain")
-                {
-                    Text = "Your current password is" + password
-                };
-
-                using(var client = new SmtpClient())
-                {
-                    client.Connect("smtp.gmail.com", 587, false);
-                    client.Authenticate("2k20cse055@kiot.ac.in", "2k20cse055");
-
-                    client.Send(message);
-                    client.Disconnect(true);
-                } 
+                string subject = "Feild Groove reset password";
+                string messageBody = "Your Field groove Password is " + password;
+                emailSender.EmailSendAsync(email, subject, messageBody);
             }
             catch(Exception ex)
             {

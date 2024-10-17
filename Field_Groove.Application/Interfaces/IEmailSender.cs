@@ -8,6 +8,6 @@ namespace Field_Groove.Application.Interfaces
 {
     public interface IEmailSender
     {
-        Task EmailSendAsync(string email, string subject, string message);
+       void EmailSendAsync(string email, string subject, string message);
     }
 }
