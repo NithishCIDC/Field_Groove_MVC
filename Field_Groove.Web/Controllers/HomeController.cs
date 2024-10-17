@@ -74,9 +74,9 @@ namespace Field_Groove.Web.Controllers
             {
                 await unitOfWork.Leads.Update(model);
                 await unitOfWork.Save();
-                return Json(new { success = true });
+                return RedirectToAction("Leads");
             }
-            return Json(new { success = false });
+            return View(model);
         }
 
         [HttpGet]
