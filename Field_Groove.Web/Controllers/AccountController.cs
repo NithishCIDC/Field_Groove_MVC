@@ -5,7 +5,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Microsoft.AspNetCore.Authorization;
+using MimeKit;
+using MailKit.Net.Smtp;
 
 namespace Field_Groove.Web.Controllers
 {
@@ -13,11 +14,13 @@ namespace Field_Groove.Web.Controllers
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IConfiguration configuration;
+        private readonly IEmailSender emailSender;
 
-        public AccountController(IUnitOfWork unitOfWork, IConfiguration configuration)
+        public AccountController(IUnitOfWork unitOfWork, IConfiguration configuration, IEmailSender emailSender)
         {
             this.unitOfWork = unitOfWork;
             this.configuration = configuration;
+            this.emailSender = emailSender;
         }
         [HttpGet]
         public IActionResult Login()
@@ -38,7 +41,7 @@ namespace Field_Groove.Web.Controllers
                 {
                     await unitOfWork.UserRepository.IsValidUser(entity);
                     var token = GenerateJwtToken(entity.Email!);
-                    configuration["Userdetails:Email"] =entity.Email;
+                    configuration["Userdetails:Email"] = entity.Email;
                     return Json(new { success = true, message = token });
                 }
             }
@@ -58,7 +61,7 @@ namespace Field_Groove.Web.Controllers
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new[]{ new Claim(ClaimTypes.Name, username)}),
+                Subject = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, username) }),
                 Expires = DateTime.Now.AddMinutes(2),
                 Issuer = configuration["Jwt:Issuer"],
                 Audience = configuration["Jwt:Audience"],
@@ -101,5 +104,34 @@ namespace Field_Groove.Web.Controllers
             ViewData["Title"] = "Register | ";
             return View();
         }
-    }
+
+        [HttpGet]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(string email)
+        {
+            try
+            {
+                string password = await unitOfWork.UserRepository.IsValidEmail(email);
+                string subject = "Feild Groove reset password";
+                string messageBody = "Your Field groove Password is " + password;
+                emailSender.EmailSendAsync(email, subject, messageBody);
+            }
+            catch(Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+                return View();
+            }
+            return RedirectToAction("ChangePassword");
+        }
+		[HttpGet]
+		public IActionResult ChangePassword()
+		{
+			return View();
+		}
+	} 
 }

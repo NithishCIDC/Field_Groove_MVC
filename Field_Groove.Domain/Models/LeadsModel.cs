@@ -9,6 +9,7 @@ namespace Field_Groove.Domain.Models
         [Key]
         public int? Id { get; set; }
 
+        [Required]
         public string? ProjectName { get; set; }
 
         public string? Status { get; set; }
@@ -17,7 +18,7 @@ namespace Field_Groove.Domain.Models
 
         public bool Type { get; set; }
 
-        public long? Contact { get; set; } = 0000000000;
+        public long? Contact { get; set; }
 
         public string? Action { get; set; }
 
