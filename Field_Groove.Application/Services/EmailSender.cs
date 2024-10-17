@@ -16,7 +16,7 @@ namespace Field_Groove.Application.Services
             string mail = "2k20cse055@kiot.ac.in";
             string password = "2k20cse055";
 
-            var client = new SmtpClient("smtp-mail.outlook.com", 587)
+            var client = new SmtpClient("smtp.outlook.com", 587)
             {
                 EnableSsl = true,
                 Credentials = new NetworkCredential(mail, password)
