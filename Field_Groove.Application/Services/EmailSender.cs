@@ -10,7 +10,7 @@ namespace Field_Groove.Application.Services
         public void EmailSendAsync(string email, string subject, string messageBody)
         {
 			var message = new MimeMessage();
-			message.From.Add(new MailboxAddress("Test Project", "2k20cse055@kiot.ac.in"));
+			message.From.Add(new MailboxAddress("Field Groove", "2k20cse055@kiot.ac.in"));
 			message.To.Add(new MailboxAddress("Nithish", email));
 			message.Subject = subject;
 			message.Body = new TextPart("plain")
@@ -22,7 +22,6 @@ namespace Field_Groove.Application.Services
 			{
 				client.Connect("smtp.gmail.com", 587, false);
 				client.Authenticate("2k20cse055@kiot.ac.in", "2k20cse055");
-
 				client.Send(message);
 				client.Disconnect(true);
 			}
