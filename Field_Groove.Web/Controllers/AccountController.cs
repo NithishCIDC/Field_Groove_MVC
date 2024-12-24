@@ -61,7 +61,7 @@ namespace Field_Groove.Web.Controllers
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, username) }),
+                Subject = new ClaimsIdentity([new Claim(ClaimTypes.Name, username)]),
                 Expires = DateTime.Now.AddMinutes(2),
                 Issuer = configuration["Jwt:Issuer"],
                 Audience = configuration["Jwt:Audience"],
